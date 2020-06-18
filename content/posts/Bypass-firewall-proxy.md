@@ -3,7 +3,7 @@ title: "Bypasseando firewalls y proxys. Parte 1"
 date: 2019-08-21T09:11:03-03:00
 author: "Matias, Ramirez"
 
-draft: false
+draft: true
 
 tags: ["content", "Markdown"]
 categories: ["selfhosted"]

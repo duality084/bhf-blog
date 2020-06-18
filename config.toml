@@ -48,18 +48,10 @@ enableEmoji = true
         identifier = "categories"
         pre = ""
         post = ""
-        name = "Categories"
+        name = "Categorias"
         url = "/categories/"
         title = ""
         weight = 3
-      [[languages.es.menu.main]]
-        identifier = "documentation"
-        pre = ""
-        post = ""
-        name = "Docs"
-        url = "/categories/documentation/"
-        title = ""
-        weight = 4
       [[languages.es.menu.main]]
         identifier = "about"
         pre = ""
@@ -68,17 +60,9 @@ enableEmoji = true
         url = "/about/"
         title = ""
         weight = 5
-      [[languages.es.menu.main]]
-        identifier = "github"
-        pre = "<i class='fab fa-github fa-fw'></i>"
-        post = ""
-        name = ""
-        url = "https://github.com/dillonzq/LoveIt"
-        title = "GitHub"
-        weight = 6
     [languages.es.params]
       # site description
-      description = "About LoveIt Theme"
+      description = "Hacking, sysadmin, beer."
       # site keywords
       keywords = ["Theme", "Hugo"]
       # App icon config
@@ -99,7 +83,7 @@ enableEmoji = true
       [languages.es.params.search]
         enable = true
         # type of search engine ("lunr", "algolia")
-        type = "algolia"
+        type = "lunr"
         # max index length of the chunked content
         contentLength = 4000
         # placeholder of the search bar
@@ -126,11 +110,11 @@ enableEmoji = true
           # Gravatar Email for preferred avatar in home page
           gravatarEmail = ""
           # URL of avatar shown in home page
-          avatarURL = "/images/avatar.png"
+          avatarURL = "https://cdn.iconscout.com/icon/premium/png-256-thumb/hacker-81-1105283.png"
           # title shown in home page (HTML format is supported)
           title = ""
           # subtitle shown in home page
-          subtitle = "El estar colocado a veces es parte de la existencia"
+          subtitle = "Hacking, sysadmin, cerveza"
           # whether to use typeit animation for subtitle
           typeit = true
           # whether to show social links
@@ -144,72 +128,11 @@ enableEmoji = true
           paginate = 6
       # Social config in home page
       [languages.es.params.social]
-        GitHub = "xxxx"
-        Linkedin = ""
-        Twitter = "xxxx"
-        Instagram = "xxxx"
-        Facebook = "xxxx"
-        Telegram = "xxxx"
-        Medium = ""
-        Gitlab = ""
-        Youtubelegacy = "xxxx"
-        Youtubecustom = ""
-        Youtubechannel = ""
-        Tumblr = ""
-        Quora = ""
-        Keybase = ""
-        Pinterest = ""
-        Reddit = ""
-        Codepen = ""
-        FreeCodeCamp = ""
-        Bitbucket = ""
-        Stackoverflow = ""
-        Weibo = ""
-        Odnoklassniki = ""
-        VK = ""
-        Flickr = ""
-        Xing = ""
-        Snapchat = ""
-        Soundcloud = ""
-        Spotify = ""
-        Bandcamp = ""
-        Paypal = ""
-        Fivehundredpx = ""
-        Mix = ""
-        Goodreads = ""
-        Lastfm = ""
-        Foursquare = ""
-        Hackernews = ""
-        Kickstarter = ""
-        Patreon = ""
-        Steam = ""
-        Twitch = ""
-        Strava = ""
-        Skype = ""
-        Whatsapp = ""
-        Zhihu = ""
-        Douban = ""
-        Angellist = ""
-        Slidershare = ""
-        Jsfiddle = ""
-        Deviantart = ""
-        Behance = ""
-        Dribbble = ""
-        Wordpress = ""
-        Vine = ""
-        Googlescholar = ""
-        Researchgate = ""
-        Thingiverse = ""
-        Devto = ""
-        Gitea = ""
-        XMPP = ""
-        Matrix = ""
-        Bilibili = ""
-        Email = "xxxx@xxxx.com"
+      #  GitHub = "xxxx"
+      #  Linkedin = ""
+      #  Twitter = "xxxx"
+        Email = "asd@asd.com"
         RSS = true
-        [languages.es.params.social.Mastodon]
-          id = "@xxxx"
-          prefix = "https://mastodon.technology/"
 
 [params]
   # LoveIt theme version
@@ -217,7 +140,7 @@ enableEmoji = true
   # site default theme ("light", "dark", "auto")
   defaultTheme = "dark"
   # date format
-  dateFormat = "2006-01-02"
+  dateFormat = "01-02-2006"
   # website images for Open Graph and Twitter Cards
   images = ["/logo.png"]
 
@@ -232,13 +155,14 @@ enableEmoji = true
       # URL of the LOGO
       logo = ""
       # title name
-      name = "LoveIt"
+      name = "# /home/HBF"
       # you can add extra information before the name (HTML format is supported), such as icons
-      pre = "<i class='far fa-kiss-wink-heart fa-fw'></i>"
+
+      pre = "<i class='fas fa-laptop fa-fw'></i>"
       # you can add extra information after the name (HTML format is supported), such as icons
       post = ""
       # whether to use typeit animation for title name
-      typeit = false
+      typeit = true
 
   # Footer config
   [params.footer]
@@ -305,31 +229,24 @@ enableEmoji = true
     # Code config
     [params.page.code]
       # whether to show the copy button of the code block
-      # 是否显示代码块的复制按钮
       copy = true
       # the maximum number of lines of displayed code by default
-      # 默认展开显示的代码行数
       maxShownLines = 10
     # KaTeX mathematical formulas config (KaTeX https://katex.org/)
-    # KaTeX 数学公式配置 (KaTeX https://katex.org/)
     [params.page.math]
       enable = false
       # default block delimiter is $$ ... $$ and \\[ ... \\]
-      # 默认块定界符是 $$ ... $$ 和 \\[ ... \\]
       blockLeftDelimiter = ""
       blockRightDelimiter = ""
       # default inline delimiter is $ ... $ and \\( ... \\)
-      # 默认行内定界符是 $ ... $ 和 \\( ... \\)
       inlineLeftDelimiter = ""
       inlineRightDelimiter = ""
       # KaTeX extension copy_tex
-      # KaTeX 插件 copy_tex
       copyTex = true
       # KaTeX extension mhchem
-      # KaTeX 插件 mhchem
       mhchem = true
     # Mapbox GL JS config (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
-    # Mapbox GL JS 配置 (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
+
     [params.page.mapbox]
       # access token of Mapbox GL JS
       # Mapbox GL JS 的 access token
@@ -378,7 +295,7 @@ enableEmoji = true
       Mix = false
     # Comment config
     [params.page.comment]
-      enable = true
+      enable = false
       # Disqus comment config (https://disqus.com/)
       [params.page.comment.disqus]
         enable = false
@@ -394,7 +311,7 @@ enableEmoji = true
         clientSecret = ""
       # Valine comment config (https://github.com/xCss/Valine)
       [params.page.comment.valine]
-        enable = true
+        enable = false
         appId = "QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI"
         appKey = "WBmoGyJtbqUswvfLh6L8iEBr"
         placeholder = ""
@@ -454,12 +371,10 @@ enableEmoji = true
       [params.page.library.css]
         # someCSS = "some.css"
         # located in "assets/" 位于 "assets/"
-        # Or 或者
         # someCSS = "https://cdn.example.com/some.css"
       [params.page.library.js]
         # someJavascript = "some.js"
         # located in "assets/" 位于 "assets/"
-        # Or 或者
         # someJavascript = "https://cdn.example.com/some.js"
     # SEO config
     [params.page.seo]
