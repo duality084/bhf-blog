@@ -142,7 +142,7 @@ enableEmoji = true
   # date format
   dateFormat = "01-02-2006"
   # website images for Open Graph and Twitter Cards
-  images = ["/logo.png"]
+  images = ["https://cdn.iconscout.com/icon/premium/png-256-thumb/hacker-81-1105283.png"]
 
   # Header config
   [params.header]
