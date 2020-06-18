@@ -14,5 +14,6 @@ deploy:
   github_token: $GITHUB_TOKEN # This is the authentication which you will setup in the next step in travis-ci dashboard
   email: duality084@gmail.com
   name: "Ramirez Matias"
+  fqdn: bhf.com.ar
   on:
     branch: master
