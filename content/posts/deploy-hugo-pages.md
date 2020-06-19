@@ -13,7 +13,7 @@ lightgallery: true
 ---
 
 
-Si algo caracteriza a muchos de los que trabajamos en sistemas es la aversión por hacer tareas repetitivas y monótonas y siempre que podamos vamos a recurrir a la automatización de esta manera nos queda mas tiempo para atender cosas importantes, aprender cosas nuevas, o simplemente el reto de automatizar esa tarea que tanto nos fastidia.
+Si algo caracteriza a muchos de los que trabajamos en sistemas es la aversión por hacer tareas repetitivas y monótonas, siempre que podamos vamos a recurrir a la automatización, de esta manera nos queda mas tiempo para atender cosas importantes, aprender cosas nuevas o simplemente por el reto que significa automatizar esa tarea que tanto nos fastidia hacerla manualmente.
 {{< youtube iqBfQF5bnbE >}}
 
 
