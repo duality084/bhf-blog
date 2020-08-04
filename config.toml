@@ -64,7 +64,7 @@ enableEmoji = true
       # site description
       description = "Hacking, sysadmin, beer."
       # site keywords
-      keywords = ["Theme", "Hugo"]
+      keywords = ["Hacking", "Linux"]
       # App icon config
       [languages.es.params.app]
         # optional site title override for the app when added to an iOS home screen or Android launcher

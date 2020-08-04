@@ -11,7 +11,7 @@ math:
 
 
 
-### TODO acerca de HBF
+![memoryempty](/images/portada/portada.jpg "Hacking")
 
 Escena 1. Neuquén, Argentina - Ruido de teclados de fondo.
 
@@ -22,7 +22,8 @@ Escena 1. Neuquén, Argentina - Ruido de teclados de fondo.
 
 ### Ramirez Matias
 
-Todo acerca de
+Que es esto lo puedo romper? 
+Apasionado en hacer que el software funcione con otro proposito para el que fue creado.
 
 
 ![memoryempty](/images/avatars/memoryempty.png "MemoryEmpty")

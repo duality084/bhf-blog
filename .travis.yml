@@ -1,19 +1,19 @@
 install:
-  - curl -LO https://github.com/gohugoio/hugo/releases/download/v0.72.0/hugo_extended_0.72.0_Linux-64bit.deb
+  - curl -LO https://github.com/gohugoio/hugo/releases/download/v0.74.3/hugo_extended_0.74.3_Linux-64bit.deb
   - sudo dpkg -i hugo_extended_0.72.0_Linux-64bit.deb
 
 script:
   - hugo # This commands builds your website on travis
 
 deploy:
-  local_dir: public # Default static site output dir for Hugo
-  repo: duality084/duality084.github.io # This is the slug of the repo you want to deploy your site to
+  local_dir: public # El directorio donde hugo va a generar los archivos estaticos
+  repo: duality084/duality084.github.io # El repositorio donde se va a hacer el deploy
   target_branch: master # GitHub pages branch to deploy to (in other cases it can be gh-pages)
-  provider: pages
+  provider: pages #El "provider" en este caso "pages" que nos va a dar las funcionalidades de "Github Pages" especificados mas adelante
   skip_cleanup: true
   github_token: $GITHUB_TOKEN # This is the authentication which you will setup in the next step in travis-ci dashboard
   email: duality084@gmail.com
   name: "Ramirez Matias"
-  fqdn: bhf.com.ar
+  fqdn: bhf.com.ar # Especificamos nuestro dominio si no vamos el asignado por github *.github.io, caso contrario borramos esta linea
   on:
     branch: master
