@@ -102,6 +102,6 @@ Podemos usar la ip o el dominio. Por otro lado hemos activado el flag `--verbose
 	
 ## Notas finales
 
-Aunque deerhost presente a simple vista un escenario muy sencillo y puede vulnerarse con facilidad, su riqueza esta en ser más realista de lo que uno se imagina. Para quienes recién comienzan a tomar conciencia de la importancia de la ciberseguridad puede ser muy útil hacer las pruebas localmente, y por supuesto ver que más pueden encontrar.
+Aunque deerhost presente a simple vista un escenario muy sencillo y puede vulnerarse con facilidad, su riqueza esta en ser más realista de lo que uno se imagina. Para quienes recién comienzan a tomar conciencia de la importancia de la ciberseguridad puede ser muy útil hacer las pruebas localmente, y por supuesto ver que más pueden encontrar. El repositorio de github se encuentra abierto a todos aquellos que quieran probarlo [gdg-rce-ctf](https://github.com/duality084/gdg-rce-ctf)
 
 **Happy Hacking!**
