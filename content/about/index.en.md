@@ -22,16 +22,16 @@ Escena 1. Neuquén, Argentina - Ruido de teclados de fondo.
 
 ### Ramirez Matias
 
-Que es esto lo puedo romper? 
+¿Qué es esto lo puedo romper? 
 Apasionado en hacer que el software funcione con otro proposito para el que fue creado.
 
 
 ![memoryempty](/images/avatars/memoryempty.png "MemoryEmpty")
 ### MemoryEmpty
 
-MemoryEmpty es amnésico por voto propio. Su obsesión y paranoia empuja al grupo a trabajar duro (y cuidarse las espaldas). Por lo general esta programando o rompiendo el código de otros. Nunca lo hemos visto dormir.
+MemoryEmpty es amnésico por voto propio. Su obsesión y paranoia empuja al grupo a trabajar duro (y cuidarse las espaldas). Por lo general está programando o rompiendo el código de otros. Nunca lo hemos visto dormir.
 
-![Benjamin](/images/avatars/benjamin.png "Benjamin")
-### Benjamin
+![bronxi](https://steamuserimages-a.akamaihd.net/ugc/859486863814391770/F8F00F4709795F81EE99CC4007426DDBF9783AFF/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true "Benjamin")
+### bronxi (A.K.A. benja)
+Curioso desde la infancia, bronxi desde la adolescencia. Siempre está leyendo algo y a veces se olvida de llevarlo a la práctica. Entiende los desafíos como videojuegos. Molesta con preguntas al al bhf team.
 
-Todo acerca de
