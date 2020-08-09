@@ -31,7 +31,7 @@ Apasionado en hacer que el software funcione con otro proposito para el que fue 
 
 MemoryEmpty es amnésico por voto propio. Su obsesión y paranoia empuja al grupo a trabajar duro (y cuidarse las espaldas). Por lo general está programando o rompiendo el código de otros. Nunca lo hemos visto dormir.
 
-![bronxi](https://steamuserimages-a.akamaihd.net/ugc/859486863814391770/F8F00F4709795F81EE99CC4007426DDBF9783AFF/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true "Benjamin")
+![bronxi](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQbnBdgbk82Kgxu56NNT8xXp4cx88j7DxDmKg&usqp=CAU "bronxi")
 ### bronxi (A.K.A. benja)
 Curioso desde la infancia, bronxi desde la adolescencia. Siempre está leyendo algo y a veces se olvida de llevarlo a la práctica. Entiende los desafíos como videojuegos. Molesta con preguntas al al bhf team.
 
