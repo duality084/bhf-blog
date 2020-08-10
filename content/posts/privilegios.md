@@ -1,6 +1,8 @@
 ---
 title: "Checklist para escalar privilegios desde www-data"
 subtitle: "Entramos, ¿y ahora qué hacemos?"
+date: 2020-08-09T19:48:20-03:00
+lastmod: 2020-08-09T19:48:20-03:00
 draft: false
 author: "bronxi"
 authorLink: ""
@@ -12,7 +14,7 @@ categories: []
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "https://www.canva.com/design/DAEEat3HshA/grLlJTGFLU_deQT43DlyqA/view?utm_content=DAEEat3HshA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"
+featuredImage: "https://drive.google.com/file/d/16o248v5iENYsDeixy-_tGyTcRC7Fcf4Y/view?usp=sharing"
 featuredImagePreview: ""
 
 toc:
