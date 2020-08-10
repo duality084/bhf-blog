@@ -14,7 +14,7 @@ categories: []
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "https://drive.google.com/file/d/16o248v5iENYsDeixy-_tGyTcRC7Fcf4Y/view?usp=sharing"
+featuredImage: "images/checklist.gif"
 featuredImagePreview: ""
 
 toc:
