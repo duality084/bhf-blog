@@ -14,7 +14,7 @@ categories: []
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "images/checklist.gif"
+featuredImage: "images/privilegios/checklist.png"
 featuredImagePreview: ""
 
 toc:
