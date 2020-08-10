@@ -36,7 +36,7 @@ Esto sucede en muchos CTF, ingresás al servidor web como el usuario público ww
 - Binarios SUID
 - Archivos w & x
 - Procesos de servicios
-- Kernel vulnerable.
+- Kernel vulnerable
 
 
 Puedo ejecutar comandos, ahora pruebo:
