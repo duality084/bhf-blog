@@ -114,7 +114,7 @@ enableEmoji = true
           # title shown in home page (HTML format is supported)
           title = ""
           # subtitle shown in home page
-          subtitle = "Hacking, sysadmin, cerveza"
+          subtitle = "# Rompiendo se aprende..."
           # whether to use typeit animation for subtitle
           typeit = true
           # whether to show social links
@@ -155,7 +155,7 @@ enableEmoji = true
       # URL of the LOGO
       logo = ""
       # title name
-      name = "# /home/HBF"
+      name = "# /home/BHF"
       # you can add extra information before the name (HTML format is supported), such as icons
 
       pre = "<i class='fas fa-laptop fa-fw'></i>"
