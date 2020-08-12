@@ -32,23 +32,19 @@ license: ""
 
 Habitualmente se cree que cuando hablamos de cracking, hablamos de una práctica que vulneran la privacidad ajena de las personas o de las empresas. Pero esto siempre no es así. Crackear no es una práctica ilegalidad *per se*, sino la puesta en práctica del conocimiento sobre las ciencias de la criptografía. Y digo ciencias, porque cuando hablamos de cifrar y descifrar información, no solo estamos hablando de computadoras, sino también de un amplio espectro de disciplinas que van desde la lingüística, la psicología, las matemáticas, y por supuesto, la informática. En resumen, crackear es una práctica, relacionado al estado del arte de una o varias ciencias, con el objetivo de obtener algún beneficio o alguna información, la cual en principio nos era negada.
 
-![French_cypher_machine](images/cracking/French_cypher_machine.jpg#center)
-
-<p style="text-align: center;">*Imagen 1. Máquina de cifrado francesa del siglo XVI en forma de libro de Enrique II.*</p>
+![French_cypher_machine](images/cracking/French_cypher_machine.jpg#center "Imagen 1. Máquina de cifrado francesa del siglo XVI en forma de libro de Enrique II.")
 
 Hoy en día el cracking resulta un pilar importante en investigaciones, por ejemplo para hallar solución a los virus ransomwares, para atrapar redes criminales, para análisis forenses, en tácticas militares, y, por supuesto, por hackers. Básicamente, siempre que alguien oculte información y alguien intente descifrarla, estarán las condiciones para que podamos hablar de cracking. En cada caso, cada bando pondrá en marcha una serie de ingeniosos artilugios para lograr el objetivo deseado: Ocultar u obtener información.
 
 ## 1. ¿Pero qué significa *"cifrar"*?
 
-Cifrar refiere al proceso de alteración de la información cuyo resultado oculte las características de la materia en su estado inicial, con el fin de aumentar su seguridad. ¿De cuales características hablamos? Podemos mencionar algunas, como lo son características semánticas, audioperceptivas, lógicas, etc. Pero en realidad, la noción de característica que podemos alterar solo se limita a nuestra imaginación. La características de la información que alteremos pueden ser tantas las que se desean ocultar. Podría cifrarse un mensaje escrito y desarmar su estructura semántica o sintáctica, y sin embargo mantener los símbolos alfanuméricos, con lo cual el resultado ahora es ilegible, pero mantiene aún cierta relación con el mensaje original. Podría transformarse, por ejemplo, en una lista de caracteres ASCII, o en un mismo carácter repetido eternamente, lo que no necesariamente signifique que sea más seguro (pero no podemos negar que dichos casos nos parecen mas ingeniosos).
+Cifrar refiere al proceso de alteración de la información cuyo resultado oculte las características de la materia en su estado inicial, con el fin de aumentar su seguridad. ¿De cuales características hablamos? Podemos mencionar algunas, como lo son características semánticas, sintácticas, lógicas, etc. Pero en realidad, la noción de característica que podemos alterar solo se limita a nuestra imaginación. La características de la información que alteremos pueden ser tantas las que se desean ocultar. Podría cifrarse un mensaje escrito y desarmar su estructura semántica o sintáctica, y sin embargo mantener los símbolos alfanuméricos, con lo cual el resultado ahora es ilegible, pero mantiene aún cierta relación con el mensaje original. Podría transformarse, por ejemplo, en una lista de caracteres ASCII, o en un mismo carácter repetido eternamente, lo que no necesariamente signifique que sea más seguro (pero no podemos negar que dichos casos nos parecen mas ingeniosos).
 
 Ahora, cada vez que alteramos la información, ¿estamos cifrándola? ciertamente no, y la razón principal es que para que podamos hablar propiamente de un cifrado, se debe tener como punto de partida el objetivo original no pueda comprendido por personas ajenas al grupo de personas al que pertenece dicha información.
 
 Por ejemplo, el código morse no pretende ocultar la información, solo la codifica de tal forma que -efectivamente- se han alterado las características del mensaje, pero a través de un método conocido y público, al cual cualquier persona podrá utilizar para obtener nuevamente el mensaje original. Si traducimos una palabra del español al sistema de kanji japonés, ciertamente será complicado de entender para alguien que no sepa leer kanjis, pero el mensaje, como tal, y el sistema para recuperarlo, no es ningún secreto, y cualquiera podrá acceder al mensaje si así lo desea. Para quienes tengan conocimientos en disciplinas humanísticas o sociales, pensarán en el polimorfismo de las diferentes lenguas, o de los códigos sociales y tribales. Estos, por más complejo que sea poder comprendernos, pertenecen al universo de los códigos y no de los cifrados.  
 
-![morse](images/cracking/morse.jpg#center)
-
-<p style="text-align: center;">*Imagen 2. Telégrafo del siglo XIX*</p>
+![morse](images/cracking/morse.jpg#center "Imagen 2. Telégrafo del siglo XIX")
 
 Código y cifrado son fenomenológicamente parecidos, pero la principal diferencia está en que el código pretende ser interpretado y/o utilizado públicamente, no oculta nada, mientras que el cifrado tiene como único objetivo que la información permanezca **oculta**. El cifrado no pretende comunicar "per se": aunque el mensaje que haya sido cifrado puede tener un emisor y un destinatario, el cifrado no facilita la comunicación. De hecho es todo lo contrario, pretende transformar la información en algo secreto y/o incomprensible.
 
@@ -68,8 +64,8 @@ Aunque el uso este tipo de cifrado puede hallarse en varias culturas, en la bibl
 
 El cifrado por desplazamiento es un tipo de cifrado por sustitución. Como su nombre lo indica, se sustituye cada carácter inicial por otro a partir de n desplazamientos en el alfabeto. Así, si tomamos la clave `n = 3`, el resultado es que A pasa a ser D, D pasa a ser G, y así sucesivamente.
 
-![César-crypt](images/cracking/cesar-example.png#center)
-<p style="text-align: center;">*Imagen 3. Mapa de cifrado por desplazamiento*</p>
+![César-crypt](images/cracking/cesar-example.png#center "Imagen 3. Mapa de cifrado por desplazamiento")
+
 
 Veamos ahora una forma de representarlo en algún código. En principio, necesitamos una lista alfabética, para ello vamos a valernos de la librería *string*:
 
