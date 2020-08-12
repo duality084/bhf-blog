@@ -30,7 +30,7 @@ license: ""
 > *No hay secreto que el tiempo no revele.* - Jean-Baptiste Racine
 
 
-Habitualmente se cree que cuando hablamos de cracking, hablamos de una práctica que vulneran la privacidad ajena de las personas o de las empresas. Pero esto siempre no es así. Crackear no es una práctica ilegalidad *per se*, sino la puesta en práctica del conocimiento sobre las ciencias de la criptología. Y digo ciencias, porque cuando hablamos de cifrar y descifrar información, no solo estamos hablando de computadoras, sino también de un amplio espectro de disciplinas que van desde la lingüística, la psicología, las matemáticas, y por supuesto, la informática. En resumen, crackear es una práctica, relacionado al estado del arte de una o varias ciencias, con el objetivo de obtener algún beneficio o alguna información, la cual en principio nos era negada.
+Habitualmente se cree que cuando hablamos de cracking, hablamos de una práctica que vulneran la privacidad ajena de las personas o de las empresas. Pero esto siempre no es así. Crackear no es una práctica ilegalidad *per se*, sino la puesta en práctica del conocimiento sobre las ciencias de la criptografía. Y digo ciencias, porque cuando hablamos de cifrar y descifrar información, no solo estamos hablando de computadoras, sino también de un amplio espectro de disciplinas que van desde la lingüística, la psicología, las matemáticas, y por supuesto, la informática. En resumen, crackear es una práctica, relacionado al estado del arte de una o varias ciencias, con el objetivo de obtener algún beneficio o alguna información, la cual en principio nos era negada.
 
 ![French_cypher_machine](images/cracking/French_cypher_machine.jpg#center)
 
