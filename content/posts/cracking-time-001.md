@@ -40,7 +40,7 @@ Hoy en día el cracking resulta un pilar importante en investigaciones, por ejem
 
 ## 1. ¿Pero qué significa *"cifrar"*?
 
-Cifrar refiere al proceso de alteración de la información cuyo resultado oculte las características de la materia en su estado inicial, con el fin de aumentar su seguridad. ¿De cuales características hablamos? Podemos mencionar algunas, como lo son características semánticas, audioperceptivas, lógicas, etc. Pero en realidad, la noción de característica que podemos alterar solo se limita a nuestra imaginación. La características de la información que alteremos pueden ser tantas las que se desean ocultar. Podría cifrarse un mensaje escrito y desarmar su estructura semántica o sintáctica, y sin embargo mantener los símbolos alfanuméricos, con lo cual el resultado ahora es ilegible, pero mantiene aún cierta relación con el mensaje original. Podría transformarse, por ejemplo, un sonido en una imagen, o un video en caracteres incomprensibles, y en estos casos las propiedades de las características iniciales se alejan aún más de su origen, lo que no necesariamente signifique que sea más seguro (pero no podemos negar que dichos casos nos parecen mas ingeniosos).
+Cifrar refiere al proceso de alteración de la información cuyo resultado oculte las características de la materia en su estado inicial, con el fin de aumentar su seguridad. ¿De cuales características hablamos? Podemos mencionar algunas, como lo son características semánticas, audioperceptivas, lógicas, etc. Pero en realidad, la noción de característica que podemos alterar solo se limita a nuestra imaginación. La características de la información que alteremos pueden ser tantas las que se desean ocultar. Podría cifrarse un mensaje escrito y desarmar su estructura semántica o sintáctica, y sin embargo mantener los símbolos alfanuméricos, con lo cual el resultado ahora es ilegible, pero mantiene aún cierta relación con el mensaje original. Podría transformarse, por ejemplo, en una lista de caracteres ASCII, o en un mismo carácter repetido eternamente, lo que no necesariamente signifique que sea más seguro (pero no podemos negar que dichos casos nos parecen mas ingeniosos).
 
 Ahora, cada vez que alteramos la información, ¿estamos cifrándola? ciertamente no, y la razón principal es que para que podamos hablar propiamente de un cifrado, se debe tener como punto de partida el objetivo original no pueda comprendido por personas ajenas al grupo de personas al que pertenece dicha información.
 
@@ -50,7 +50,7 @@ Por ejemplo, el código morse no pretende ocultar la información, solo la codif
 
 *Imagen 2. Telégrafo del siglo XIX*
 
-Código y cifrado son fenomenológicamente parecidos, pero la principal diferencia está en que el código pretende ser interpretado y/o utilizado publicamente, no oculta nada, mientras que el cifrado tiene como único objetivo que la información permanezca **oculta**. El cifrado no pretende comunicar "per se": aunque el mensaje que haya sido cifrado puede tener un emisor y un destinatario, el cifrado no facilita la comunicación. De hecho es todo lo contrario, pretende transformar la información en algo secreto y/o incomprensible.
+Código y cifrado son fenomenológicamente parecidos, pero la principal diferencia está en que el código pretende ser interpretado y/o utilizado públicamente, no oculta nada, mientras que el cifrado tiene como único objetivo que la información permanezca **oculta**. El cifrado no pretende comunicar "per se": aunque el mensaje que haya sido cifrado puede tener un emisor y un destinatario, el cifrado no facilita la comunicación. De hecho es todo lo contrario, pretende transformar la información en algo secreto y/o incomprensible.
 
 ***¿Y que tiene que ver todo esto con cracking?***
 
@@ -69,7 +69,7 @@ Aunque el uso este tipo de cifrado puede hallarse en varias culturas, en la bibl
 El cifrado por desplazamiento es un tipo de cifrado por sustitución. Como su nombre lo indica, se sustituye cada carácter inicial por otro a partir de n desplazamientos en el alfabeto. Así, si tomamos la clave `n = 3`, el resultado es que A pasa a ser D, D pasa a ser G, y así sucesivamente.
 
 ![César-crypt](images/cracking/cesar-example.png#center)
-*Imagen 3. Mapa de cifrado por dezplazamiento*
+*Imagen 3. Mapa de cifrado por desplazamiento*
 
 Veamos ahora una forma de representarlo en algún código. En principio, necesitamos una lista alfabética, para ello vamos a valernos de la librería *string*:
 
