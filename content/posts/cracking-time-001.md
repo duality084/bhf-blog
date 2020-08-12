@@ -34,7 +34,7 @@ Habitualmente se cree que cuando hablamos de cracking, hablamos de una práctica
 
 ![French_cypher_machine](images/cracking/French_cypher_machine.jpg#center)
 
-*Imagen 1. Máquina de cifrado francesa del siglo XVI en forma de libro de Enrique II.*
+<p style="text-align: center;">*Imagen 1. Máquina de cifrado francesa del siglo XVI en forma de libro de Enrique II.*</p>
 
 Hoy en día el cracking resulta un pilar importante en investigaciones, por ejemplo para hallar solución a los virus ransomwares, para atrapar redes criminales, para análisis forenses, en tácticas militares, y, por supuesto, por hackers. Básicamente, siempre que alguien oculte información y alguien intente descifrarla, estarán las condiciones para que podamos hablar de cracking. En cada caso, cada bando pondrá en marcha una serie de ingeniosos artilugios para lograr el objetivo deseado: Ocultar u obtener información.
 
@@ -48,7 +48,7 @@ Por ejemplo, el código morse no pretende ocultar la información, solo la codif
 
 ![morse](images/cracking/morse.jpg#center)
 
-*Imagen 2. Telégrafo del siglo XIX*
+<p style="text-align: center;">*Imagen 2. Telégrafo del siglo XIX*</p>
 
 Código y cifrado son fenomenológicamente parecidos, pero la principal diferencia está en que el código pretende ser interpretado y/o utilizado públicamente, no oculta nada, mientras que el cifrado tiene como único objetivo que la información permanezca **oculta**. El cifrado no pretende comunicar "per se": aunque el mensaje que haya sido cifrado puede tener un emisor y un destinatario, el cifrado no facilita la comunicación. De hecho es todo lo contrario, pretende transformar la información en algo secreto y/o incomprensible.
 
@@ -69,7 +69,7 @@ Aunque el uso este tipo de cifrado puede hallarse en varias culturas, en la bibl
 El cifrado por desplazamiento es un tipo de cifrado por sustitución. Como su nombre lo indica, se sustituye cada carácter inicial por otro a partir de n desplazamientos en el alfabeto. Así, si tomamos la clave `n = 3`, el resultado es que A pasa a ser D, D pasa a ser G, y así sucesivamente.
 
 ![César-crypt](images/cracking/cesar-example.png#center)
-*Imagen 3. Mapa de cifrado por desplazamiento*
+<p style="text-align: center;">*Imagen 3. Mapa de cifrado por desplazamiento*</p>
 
 Veamos ahora una forma de representarlo en algún código. En principio, necesitamos una lista alfabética, para ello vamos a valernos de la librería *string*:
 
