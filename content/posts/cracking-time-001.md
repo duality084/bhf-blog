@@ -34,7 +34,7 @@ Habitualmente se cree que cuando hablamos de cracking, hablamos de una práctica
 
 ![French_cypher_machine](images/cracking/French_cypher_machine.jpg#center "Imagen 1. Máquina de cifrado francesa del siglo XVI en forma de libro de Enrique II.")
 
-Hoy en día, el cracking resulta un pilar importante en investigaciones. Por ejemplo, para hallar solución a los virus ransomwares, para atrapar redes criminales, para análisis forenses, en tácticas militares y, por supuesto, por hackers. Básicamente, siempre que alguien oculte información y alguien intente descifrarla estarán las condiciones para que podamos hablar de cracking. En cada caso, cada bando pondrá en marcha una serie de ingeniosos artilugios para lograr el objetivo deseado: ocultar u obtener información.
+Hoy en día, el cracking resulta un pilar importante en investigaciones. Por ejemplo, para hallar solución a los ransomwares, para atrapar redes criminales, para análisis forenses, en tácticas militares y, por supuesto, por hackers. Básicamente, siempre que alguien oculte información y alguien intente descifrarla estarán las condiciones para que podamos hablar de cracking. En cada caso, cada bando pondrá en marcha una serie de ingeniosos artilugios para lograr el objetivo deseado: ocultar u obtener información.
 
 ## 1. ¿Pero qué significa *"cifrar"*?
 
