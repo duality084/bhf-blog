@@ -209,7 +209,7 @@ Y en el apartado ["behavior"](https://www.virustotal.com/gui/file/b38783113eda00
 
 Vemos que el malware efectivamente se comunica a la ip "192.104.41.75" por el puerto 80 utilizando el protocolo HTTP para obtener el archivo "75.bro", luego de este descubrimiento y al estar 99% seguro de que el flag que estaba poniendo era el correcto mediante este segundo experimento decidi comunicarme por Discord en el canal de la NOTPinkCON con la gente de ASSAP para informarles que no me tomaba correctamente el flag, la gente de ASSAP respondio de manera casi inmediata y pude validar el flag correctamente.
 
-De esta manera termino esta primer entrega, contento de aprneder y tener por primera vez un "hands on" con volatility, conociendo por primera vez la herramienta sigcheck, repasando y afianzando los conocimientos obtenidos escribiendo y compartiendo este post con ustedes. Pronto la segunda entrega sobre algunos retos del CTF principal de la NotPinkCon!
+De esta manera termino esta primer entrega, contento de aprender y tener por primera vez un "hands on" con volatility, conociendo por primera vez la herramienta sigcheck, repasando y afianzando los conocimientos obtenidos escribiendo y compartiendo este post con ustedes. Pronto la segunda entrega sobre algunos retos del CTF principal de la NotPinkCon!
 
 
 Happy hacking!
