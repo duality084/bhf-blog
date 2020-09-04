@@ -13,19 +13,19 @@ lightgallery: true
 ---
 
 
-El 29 de Agosto se realizó la [NotPinkCon](https://notpinkcon.org/), excelente conferencia de ciberseguridad impartida por mujeres cuyo objetivo principal es incentivar a las mujeres que participen como oradoras y cada vez sean mas las que asisten a eventos de seguridad informática. La jornada del 29 fue excepcional, charlas de un muy buen nivel tecnico, con charlas en ingles y castellano, traducción "on the fly" para aquellos que no se sintieran comodos con el ingles o castellano a través de Discord, todo muy bien organizado. Este año se añadió al evento 2 CTFs uno creado por la empresa [Assap](https://www.asapp.com) y otro por [Women's Society of Cyberjutsu](https://womenscyberjutsu.org/) organización la cual al igual que la NOTPinkCon busca acercar y acompañar a las mujeres interesadas en la ciberseguridad. De estos 2 CTFs vamos a estar hablando en esta publicación y una segunda parte.
+El 29 de Agosto se realizó la [NotPinkCon](https://notpinkcon.org/), excelente conferencia de ciberseguridad impartida por mujeres cuyo objetivo principal es incentivar a las mujeres a que participen como oradoras y cada vez sean más las que asisten a eventos de seguridad informática. La jornada del 29 fue excepcional, charlas de un muy buen nivel técnico, con charlas en inglés y castellano, traducción "on the fly" para aquellos que no se sintieran cómodos con el inglés o castellano a través de Discord, todo muy bien organizado. Este año se añadió al evento 2 CTFs, creado por la empresa [Assap](https://www.asapp.com) y otro por [Women's Society of Cyberjutsu](https://womenscyberjutsu.org/) organización la que al igual que la NOTPinkCon busca acercar y acompañar a las mujeres interesadas en la ciberseguridad. De estos 2 CTFs hablaremos en esta publicación y en una segunda parte.
 
 
 ## Volatility 
 
-[Volatility](https://www.volatilityfoundation.org/) es un un framework escrito en python que nos permite agarrar una "imagen" que se haya tomado de la memoria RAM y hacer un analisis, con esta imagen y su procesamiento mediante Volatility se puede obtener muchísima información de lo que estaba ocurriendo en el Sistema Operativo al momento en el cual se tomo la imagen. Esto suele ser utilizado por personas que se dediquen al análisis forense, respuesta de incidentes, analistas de malware, etc.
+[Volatility](https://www.volatilityfoundation.org/) es un un framework escrito en python que nos permite agarrar una "imagen" que se haya tomado de la memoria RAM y hacer un análisis. Con esta imagen y su procesamiento mediante Volatility se puede obtener muchísima información de lo que estaba ocurriendo en el Sistema Operativo al momento en el que se tomó la imagen. Esto suele ser utilizado por personas que se dediquen al análisis forense, respuesta de incidentes, analistas de malware, etc.
 
-Personalmente no había utilizado la herramienta con anterioridad, lo bueno de participar en CTFs es que te "obliga" a utilizar herramientas o aprender nuevos conceptos para ir resolviendo los retos. Si bien había leído muchos artículos sobre análisis con Volatility y la información que se podía obtener, al tener que realizarlo por mi cuenta quede fascinado con lo que hice y lo que se puede hacer.
+Personalmente no había utilizado la herramienta con anterioridad, lo bueno de participar en CTFs es que te "obliga" a utilizar herramientas o aprender nuevos conceptos para resolver los retos. Si bien había leído muchos artículos sobre análisis, con Volatility y la información que se podía obtener, al tener que realizarlo por mi cuenta quedé fascinado con lo que hice y sus posibilidades.
 
 
 ## ASSAP CTF
 
-Luego de la introducción comencemos con lo divertido. El CTF creado por ASSAP consistía de 3 retos, comencemos por los cuales había que hacer una análisis de una imagen de la memoria RAM de un equipo que fue infectado con un malware. 
+Luego de la introducción comencemos con lo divertido. El CTF creado por ASSAP consistía de 3 retos, empecemos por los que requerían un análisis de una imagen de la memoria RAM de un equipo infectado con un malware. 
 
 ### Primer reto
 La consigna era la siguiente:
@@ -34,7 +34,7 @@ La consigna era la siguiente:
 
 Nos dan una imagen de la memoria RAM para descargar y procedemos a analizarla para obtener la ip del host sospechoso al cual se estaban realizando las conexiones por el puerto 80.
 
-Una ves descargada la imagen pocredemos a analizarla con Volatility en nuestro Kali Linux(ya se encuntra instalado por defecto). Antes de comenzar a obtener lo que se nos solicito necesitamos saber que tipo de sistema operativo estaba corriendo en el equipo. Para eso ejecutamos el comando "volatility -f memory.vmem imageinfo" con el parámetro -f le indicamos que archivo va a analizar y con imageinfo le indicamos que queremos obtener información sobre la imagen, el resultado de la ejecución es el siguiente:
+Una vez descargada la imagen, pocredemos a analizarla con Volatility en nuestro Kali Linux (ya se encuntra instalado por defecto). Antes de comenzar a obtener lo que se nos solicitó, necesitamos saber qué tipo de sistema operativo estaba corriendo en el equipo. Para eso ejecutamos el comando "volatility -f memory.vmem imageinfo" con el parámetro -f le indicamos qué archivo va a analizar y con imageinfo le indicamos qué información queremos obtener sobre la imagen, el resultado de la ejecución es el siguiente:
 
 ```
 $volatility -f memory.vmem imageinfo
@@ -54,9 +54,9 @@ INFO    : volatility.debug    : Determining profile based on KDBG search...
      Image local date and time : 2010-08-15 15:17:56 -0400
 ```
 
-Volatility esta basado en años de investigaciones académicas sobre el análisis avanzado de la memoria RAM, al ser un proyecto Open Source y modular, tiene muchísimas funcionalidades y es capaz de analizar cada aspecto de las aplicaciones y sistema operativo que estaba corriendo al momento de tomar la imagen, en este caso se nos indica que se sugiere utilizar el "profile" "WinXPSP2x86" o "WinXPSP3x86", cada sistema operativo utiliza y guarda en la memoria RAM los datos de distinta manera, incluso entre versiones del mismo sistema operativo hay diferencias en como son almacenados los datos y que tipo de dato es. En este caso nos sugiere que se analice utilizando el perfil para "Windows XP SP2" en su version de 32 bits. Conociendo esto ya podemos proceder a obtener la información que se nos pide en el reto.
+Volatility esta basado en años de investigaciones académicas sobre el análisis avanzado de la memoria RAM, al ser un proyecto Open Source y modular, tiene muchísimas funcionalidades y es capaz de analizar cada aspecto de las aplicaciones y sistema operativo que corría al momento de tomar la imagen. En este caso se nos indica que se sugiere utilizar el "profile" "WinXPSP2x86" o "WinXPSP3x86", cada sistema operativo utiliza y guarda en la memoria RAM los datos de distinta manera, incluso entre versiones del mismo sistema operativo hay diferencias en cómo son almacenados los datos y qué tipo de dato es. En este caso nos sugiere que se analice utilizando el perfil para "Windows XP SP2" en su version de 32 bits. Conociendo esto ya podemos proceder a obtener la información que se nos pide en el reto.
 
-Lo que debíamos obtener es a que dirección ip se estan realizando conexiones sospechosas sobre el puerto 80, esto lo podemos lograr ejecutando el siguiente comando, "volatility -f memory.vmem --profile=WinXPSP2x86 connscan", en este caso agregamos los parámetros --profile en el cual especificamos con que "perfil" se debería analizar la imagen y connscan para que nos muestre las conexiones.
+Lo que debíamos obtener es a qué dirección ip se estban realizando conexiones sospechosas sobre el puerto 80, esto lo podemos lograr ejecutando el siguiente comando, "volatility -f memory.vmem --profile=WinXPSP2x86 connscan", en este caso agregamos los parámetros --profile en que especificamos con qué "perfil" se debería analizar la imagen y connscan para que nos muestre las conexiones.
 
 ```
 
@@ -67,7 +67,7 @@ Offset(P)  Local Address             Remote Address            Pid
 0x02214988 172.16.176.143:1054       193.104.41.75:80          856
 0x06015ab0 0.0.0.0:1056              193.104.41.75:80          856
 ```
-El resultado por lo que pueden ver es muy completo, tenemos direccion local desde la cual se esta relizando la conexion, la dirrecion remota y el identifcador del proceso(PID) que esta realizando dicha conexion, en este caso solo se nos pide la ip asi que el flag para resolver el reto es "193.104.41.75".
+El resultado, por lo que pueden ver, es muy completo. Tenemos direccion local desde la cual se está realizando la conexión, la dirección remota y el identifcador del proceso(PID) que está realizando dicha conexion, en este caso solo se nos pide la ip. así que el flag para resolver el reto es "193.104.41.75".
 ### Segundo reto
 Otro de los retos era obtener el PID del proceso que realiza la conexion y eso ya lo obtuvimos con el comando anterior, se puede observar que el PID es el 856.
 
