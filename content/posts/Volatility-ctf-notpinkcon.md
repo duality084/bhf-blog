@@ -69,11 +69,11 @@ Offset(P)  Local Address             Remote Address            Pid
 ```
 El resultado, por lo que pueden ver, es muy completo. Tenemos direccion local desde la cual se está realizando la conexión, la dirección remota y el identifcador del proceso(PID) que está realizando dicha conexion, en este caso solo se nos pide la ip. así que el flag para resolver el reto es "193.104.41.75".
 ### Segundo reto
-Otro de los retos era obtener el PID del proceso que realiza la conexion y eso ya lo obtuvimos con el comando anterior, se puede observar que el PID es el 856.
+Otro de los retos era obtener el PID del proceso que realiza la conexión. Esto lo obtuvimos con el comando anterior, se puede observar que el PID es el 856.
 
 ![CTF1](/images/volatility-ctf-notpinkcon/ctf.PNG "PID")
 
-A modo de demostracion podemos obtener tambien el nombre del proceso el cual estaba realizando las conexiones con el siguiente comando. "volatility -f memory.vmem --profile=WinXPSP2x86 pslist" en este caso agregamos el parametro pslist el cual nos va a mostrar la lista de todos los procesos corriendo.
+A modo de demostración podemos obtener también el nombre del proceso que estaba realizando las conexiones con el siguiente comando: "volatility -f memory.vmem --profile=WinXPSP2x86 pslist". En este caso agregamos el parametro pslist que nos va a mostrar la lista de todos los procesos en ejecución.
 ```
 $ volatility -f memory.vmem --profile=WinXPSP2x86 pslist
 Volatility Foundation Volatility Framework 2.6
@@ -106,29 +106,28 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 0xff224020 cmd.exe                 124   1668      0 --------      0      0 2010-08-15 19:17:55 UTC+0000   2010-08-15 19:17:56 UTC+000
 ```
 
-Si buscamos en la columna PID el numero "856" y luego observamos en la misma linea la columna "Name" encontramos que el nombre del proceso que esta realizando las conexiones es "svchost.exe"
+Si buscamos en la columna PID el número "856" y luego observamos en la misma línea la columna "Name" encontramos que el nombre del proceso que está realizando las conexiones es "svchost.exe".
 
 ### Tercer reto
-Por ultimo habia un 3er reto. En el cual se nos habla de [SIGCHECK](https://docs.microsoft.com/en-us/sysinternals/downloads/sigcheck), una de las tantas maravillosas herramientas de sysinternals(Process Explorer, procdump, psexec, etc), con esta herramienta podemos analizar archivos ejecutables y obtener su version, timestamp, firma digital, hash, etc. Pero una de sus mejores caracteristicas es comprobar el archivo en [VirusTotal](https://www.virustotal.com) y saber si el archivo se trata de un malware. El reto era el siguiente.
+Por último, el 3er reto. En este se nos habla de [SIGCHECK](https://docs.microsoft.com/en-us/sysinternals/downloads/sigcheck), una de las tantas maravillosas herramientas de sysinternals(Process Explorer, procdump, psexec, etc), con esta herramienta podemos analizar archivos ejecutables y obtener su versión, timestamp, firma digital, hash, etc. Pero una de sus mejores características es comprobar el archivo en [VirusTotal](https://www.virustotal.com) y saber si el archivo se trata de un malware. El reto era el siguiente:
 ![CTF3](/images/volatility-ctf-notpinkcon/ctf3.png "SIGCHECK")
 
-Nos dan un enlace para descargar un archivo con la extension .numbers, luego de una simple busqueda en Google me percato que el archivo pertenece al programa "Numbers" de la suite "iWork", vendria a ser el equivalente de Excel en Microsoft Office, buscamos un conversor para transformarlo a un formato el cual podamos leer. Encontre la pagina [https://cloudconvert.com/numbers-to-csv/](https://cloudconvert.com/numbers-to-csv) la cual nos permite como lo dijimos antes convertir el archivo a un archivo CSV.
+Nos dan un enlace para descargar un archivo con la extensión .numbers. Luego de una simple búsqueda en Google, me percato de que el archivo pertenece al programa "Numbers" de la suite "iWork", sería el equivalente de Excel en Microsoft Office. Buscamos un conversor para transformarlo a un formato que podamos leer. Encontré la página [https://cloudconvert.com/numbers-to-csv/](https://cloudconvert.com/numbers-to-csv) la cual nos permite, como lo dijimos antes, convertir el archivo a CSV.
 
 ![Numbers](/images/volatility-ctf-notpinkcon/numberscon.png "Numbers Converter")
 
-Una vez convertido podemos ver su contenido con nano(?)
+Una vez convertido podemos ver su contenido con nano(?).
 
 ![nano](/images/volatility-ctf-notpinkcon/csv.PNG "CSV nano")
 
-Bueno no se ve muy bonito y no es muy facil de leer, pero en base a la consigna que tenemos en el reto lo que necesitamos saber es el nombre del archivo que disparo las alertas.
-Sabiendo eso podemos procesar el archivo con las grandiosas herramientas que los Dioses de UNIX nos dieron cuando el mundo fue creado. 
+Bueno, no se ve muy bonito y no es muy fácil de leer, pero en base a la consigna que tenemos en el reto, lo que necesitamos saber es el nombre del archivo que disparó las alertas. Sabiendo eso, podemos procesar el archivo con las grandiosas herramientas que los Dioses de UNIX nos dieron cuando el mundo fue creado.
 ![UnixGods](/images/volatility-ctf-notpinkcon/Ken_Thompson_and_Dennis_Ritchie--1973.jpg "Ken Thompson y Dennis Ritchie")
 
-Si, estamos hablando de procesar el archivo con los miticos comandos cat, awk y grep. Sabemos que el archivo es un CSV separado por comas. Y lo que estamos buscando es los archivos que hicieron saltar las "alarmas", el archivo CSV que obtuvimos luego de la conversion se trata la salida del comando SIGCHECK con los resultados luego de analizar la carpeta "z:\windows_mount\windows\system32" y todos sus archivos. El archivo CSV consta de varias columnas.
+Sí, estamos hablando de procesar el archivo con los míticos comandos cat, awk y grep. Sabemos que el archivo es un CSV separado por comas. Y lo que estamos buscando son los archivos que hicieron saltar las "alarmas", el archivo CSV que obtuvimos luego de la conversión se trata de la salida del comando SIGCHECK con los resultados luego de analizar la carpeta "z:\windows_mount\windows\system32" y todos sus archivos. El archivo CSV consta de varias columnas.
 ```
 Path,Verified,Date,Publisher,Company,Description,Product,Product Version,File Version,Machine Type,MD5,SHA1,PESHA1,PESHA256,SHA256,IMP,VT detection,VT link
 ```
-Las que nos interesan son "Path" para saber el nombre del archivo sospechoso y "VT Detection" para saber si el archivo tiene detección como malware por los antivirus que analizan el archivo en VirusTotal, en la columna "VT Detection" nos aparece la cantididad de detecciones y la cantidad de soluciones antivirus que analizaron el archivo separado por el caracter "|". Con el comando grep podemos filtrar solo los archivos cuyos lineas no contengan "0|" y luego con awk imprimir solo las columnas que nos interesan.
+Las que nos interesan son "Path" para saber el nombre del archivo sospechoso y "VT Detection" para saber si el archivo tiene detección como malware, por los antivirus que analizan el archivo en VirusTotal. En la columna "VT Detection", nos aparece la cantididad de detecciones y la cantidad de soluciones antivirus que analizaron el archivo separado por el caracter "|". Con el comando grep podemos filtrar solo los archivos cuyas líneas no contengan "0|" y luego con awk imprimir solo las columnas que nos interesan.
 
 ```
 cat sigcheck-win7-32-blabla01.csv | grep -v "0|" |awk 'BEGIN {FS = ","}; {print $1 "," $17 }'
@@ -140,11 +139,11 @@ z:\windows_mount\windows\system32\TPVMMon.dll,1|62
 z:\windows_mount\windows\system32\hydrakatz.exe,42|61
 z:\windows_mount\windows\system32\sekurlsa.dll,33|56
 ```
-Maravilloso, de las 2081 lineas del archivo original solo nos quedaron 6 lineas, observamos que el archivo con mas detecciones es "hydrakatz.exe" con 42 detecciones, el flag para el reto es "hydrakatz.exe", si ya se lo que estan pensando de seguro era mas facil llevar el CSV a Excel o Calc y filtrar los resultados. ¿Pero esto no se trata de aprender cosas nuevas?
+Maravilloso, de las 2081 líneas del archivo original solo nos quedaron 6 líneas, observamos que el archivo con más detecciones es "hydrakatz.exe", con 42 detecciones. El flag para el reto es "hydrakatz.exe", sí, ya se lo que están pensando, de seguro era más fácil llevar el CSV a Excel o Calc y filtrar los resultados. ¿Pero esto no se trata de aprender cosas nuevas?
 
 ### Bonus track
 
-Cuando uno lee las soluciones de los CTFs se suele pensar que la persona que lo escribio es un "genio" o "genia" que tiene las respuestas a todas las preguntas, la verdad es que no es asi, como comente en un principio no habia utilizado nunca Volatility, y no conocia con anterioridad SIGCHECK y me lleve un gran aprendizaje haciendo este CTF, la manera de resolver los retos es perserverar e intentar distintas soluciones a los problemas. Mientras realizaba el primer reto que expuse no me tomaba el "flag" "193.104.41.75", a lo cual procedi a tomar otros caminos pensando que me estaba equivocando en la respuesta. Eso me llevo a un [cheatsheat](https://digital-forensics.sans.org/media/volatility-memory-forensics-cheat-sheet.pdf) sobre Volatility y en especial a una manera de extraer los archivos que se podian encontrar en la memoria RAM
+Cuando uno lee las soluciones de los CTFs se suele pensar que la persona que lo escribió es un "genio" o "genia" que tiene las respuestas a todas las preguntas, la verdad es que no es asi, como comente en un principio no habia utilizado nunca Volatility, y no conocia con anterioridad SIGCHECK y me lleve un gran aprendizaje haciendo este CTF, la manera de resolver los retos es perserverar e intentar distintas soluciones a los problemas. Mientras realizaba el primer reto que expuse no me tomaba el "flag" "193.104.41.75", a lo cual procedi a tomar otros caminos pensando que me estaba equivocando en la respuesta. Eso me llevo a un [cheatsheat](https://digital-forensics.sans.org/media/volatility-memory-forensics-cheat-sheet.pdf) sobre Volatility y en especial a una manera de extraer los archivos que se podian encontrar en la memoria RAM
 
 ![CheatSheat](/images/volatility-ctf-notpinkcon/cheatsheetv.png "Volatility is AWSOME!")
 
