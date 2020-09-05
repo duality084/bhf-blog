@@ -143,11 +143,11 @@ Maravilloso, de las 2081 líneas del archivo original solo nos quedaron 6 línea
 
 ### Bonus track
 
-Cuando uno lee las soluciones de los CTFs se suele pensar que la persona que lo escribió es un "genio" o "genia" que tiene las respuestas a todas las preguntas, la verdad es que no es asi, como comente en un principio no habia utilizado nunca Volatility, y no conocia con anterioridad SIGCHECK y me lleve un gran aprendizaje haciendo este CTF, la manera de resolver los retos es perserverar e intentar distintas soluciones a los problemas. Mientras realizaba el primer reto que expuse no me tomaba el "flag" "193.104.41.75", a lo cual procedi a tomar otros caminos pensando que me estaba equivocando en la respuesta. Eso me llevo a un [cheatsheat](https://digital-forensics.sans.org/media/volatility-memory-forensics-cheat-sheet.pdf) sobre Volatility y en especial a una manera de extraer los archivos que se podian encontrar en la memoria RAM
+Cuando uno lee las soluciones de los CTFs se suele pensar que la persona que lo escribió es un "genio" o "genia", que tiene las respuestas a todas las preguntas. La verdad es que no es así, como comenté en un principio no había utilizado nunca Volatility, y no conocía con anterioridad SIGCHECK y me llevé un gran aprendizaje haciendo este CTF. La manera de resolver los retos es perserverar e intentar distintas soluciones a los problemas. Mientras realizaba el primer reto que expuse no me tomaba el "flag" "193.104.41.75", por lo que procedí a tomar otros caminos pensando que me estaba equivocando en la respuesta. Eso me llevó a un [cheatsheet](https://digital-forensics.sans.org/media/volatility-memory-forensics-cheat-sheet.pdf) sobre Volatility y en especial a una manera de extraer los archivos que se podían encontrar en la memoria RAM.
 
 ![CheatSheat](/images/volatility-ctf-notpinkcon/cheatsheetv.png "Volatility is AWSOME!")
 
-Lo que decidi hacer era ver si podia dumpear todos los archivos ejecutables que se pudieran encontrar, utilizar SIGCHECK para comprobar los archivos contra VirusTotal,saber cual era el malware que estaba realizando las conexiones y encontrar cual era la IP a la cual se conectaba. Para "dumpear" todos los ejecutables utilicé el siguiente comando.
+Lo que decidí hacer era ver si podía dumpear todos los archivos ejecutables que se pudieran encontrar, utilizar SIGCHECK para comprobar los archivos contra VirusTotal, saber cuál era el malware que estaba realizando las conexiones y encontrar cuál era la IP a la que se conectaba. Para "dumpear" todos los ejecutables utilicé el siguiente comando:
 ```
 volatility -f memory.vmem --profile=WinXPSP2x86 dumpfiles -n -i -r \\.exe --dump-dir=./dump3
 
@@ -178,19 +178,19 @@ ImageSectionObject 0x80fb5138   452    \Device\HarddiskVolume1\Program Files\VMw
 DataSectionObject 0x80fb5138   452    \Device\HarddiskVolume1\Program Files\VMware\VMware Tools\VMwareUser.exe
 ```
 
-El comando nos dejo todos los archivos encontrados en la carpeta "dump3", en el nombre podemos observar el identificador de proceso al cual esta asociado el archivo y el nombre del archivo
+El comando nos dejó todos los archivos encontrados en la carpeta "dump3", en el nombre podemos observar el identificador de proceso al que está asociado el archivo y el nombre del archivo.
 
 
 ![FilesDump](/images/volatility-ctf-notpinkcon/dump.png "Files Dump")
 
 
-Como me gusta mantenerme en Linux podemos ejectuar Sigcheck con wine(ejecutar la version de 64 bits de wine junto con la version 64bits de sigcheck) para realizar el escaneo de los archivos que obtuvimos. Luego de ejectuar sigcheck de la siguiente forma:
+Como me gusta mantenerme en Linux, ejecutamos Sigcheck con wine (ejecutar la version de 64 bits de wine junto con la version 64bits de sigcheck) para realizar el escaneo de los archivos que obtuvimos. Luego de ejectuar sigcheck de la siguiente forma:
 ```
 sigcheck64.exe -v -s -c dump3
 
 ```
 
-Obtenmos el siguiente resultado, se quitaron filas y columnas sin relevancia para una optima legibilidad
+Obtenmos el siguiente resultado (se quitaron filas y columnas sin relevancia para una optima legibilidad):
 ```
 Path,Verified,Date,Publisher,Company,Description,Product,Product Version,File Version,Machine Type,VT detection,VT link
 
@@ -198,7 +198,7 @@ Path,Verified,Date,Publisher,Company,Description,Product,Product Version,File Ve
 
 ```
 
-Como vemos obtenemos un archivo llamado "sdra64.exe" con deteccion en 61 de 72 motores antivurus, si procedemos a acceder al [enlace](https://www.virustotal.com/gui/file/b38783113eda00bbe864d54fda9db97e36ee9fc8e4509e3dc71478a46250f498/detection/) de VirusTotal con el analiss de la muestra vemos lo siguiente.
+Como vemos, obtenemos un archivo llamado "sdra64.exe" con detección en 61 de 72 motores antivurus, si procedemos a acceder al [enlace](https://www.virustotal.com/gui/file/b38783113eda00bbe864d54fda9db97e36ee9fc8e4509e3dc71478a46250f498/detection/) de VirusTotal con el analiss de la muestra vemos lo siguiente:
 
 ![Virus total](/images/volatility-ctf-notpinkcon/virustotal.png "Resultado Virustotal")
 
@@ -206,10 +206,9 @@ Y en el apartado ["behavior"](https://www.virustotal.com/gui/file/b38783113eda00
 
 ![Virus total- Comportamiento](/images/volatility-ctf-notpinkcon/behaviorvt.png "Malware comportamiento")
 
-Vemos que el malware efectivamente se comunica a la ip "192.104.41.75" por el puerto 80 utilizando el protocolo HTTP para obtener el archivo "75.bro", luego de este descubrimiento y al estar 99% seguro de que el flag que estaba poniendo era el correcto mediante este segundo experimento decidi comunicarme por Discord en el canal de la NOTPinkCON con la gente de ASSAP para informarles que no me tomaba correctamente el flag, la gente de ASSAP respondio de manera casi inmediata y pude validar el flag correctamente.
+Observamos que el malware efectivamente se comunica a la ip "192.104.41.75" por el puerto 80 utilizando el protocolo HTTP para obtener el archivo "75.bro". Luego de este descubrimiento, y al estar 99% seguro de que el flag que estaba poniendo era el correcto mediante este segundo experimento, decidí comunicarme por Discord en el canal de la NOTPinkCON con la gente de ASSAP para informarles que no me tomaba correctamente el flag, la gente de ASSAP respondió de manera casi inmediata y pude validar el flag correctamente.
 
-De esta manera termino esta primer entrega, contento de aprender y tener por primera vez un "hands on" con volatility, conociendo por primera vez la herramienta sigcheck, repasando y afianzando los conocimientos obtenidos escribiendo y compartiendo este post con ustedes. Pronto la segunda entrega sobre algunos retos del CTF principal de la NotPinkCon!
+De esta manera termina esta primer entrega: contento de aprender y tener por primera vez un "hands on" con volatility, haber usado por primera vez la herramienta sigcheck, repasando y afianzando los conocimientos obtenidos escribiendo y compartiendo este post con ustedes. Pronto la segunda entrega sobre algunos retos del CTF principal de la NotPinkCon!
 
 
 Happy hacking!
-
