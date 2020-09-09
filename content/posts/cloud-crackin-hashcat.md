@@ -46,7 +46,7 @@ Nnuca esta de mas contar con la capacidad de romper hashes, ya sea por conocer e
 
 ## Google Colab
 
-Viendo videos de [John Hammond](https://www.youtube.com/channel/UCVeW9qkBjo3zosnqUbG7CFw) llegue a "Google Colaboratory" la herramienta de Google para ejecutar codigo de Python con al uso de GPUs, Y GRATIS!, esto esta hecho para que estudiantes, cientificos de datos e investigadores en inteligencia artificial tengan acceso al uso de GPUs para sus calculos.
+Viendo videos de [John Hammond](https://www.youtube.com/channel/UCVeW9qkBjo3zosnqUbG7CFw) llegue a "Google Colaboratory" la herramienta de Google para ejecutar codigo de Python con el acceso a GPUs, Y GRATIS!, esto esta hecho para que estudiantes, cientificos de datos e investigadores en inteligencia artificial tengan acceso al uso de GPUs para sus calculos.
 
 Si bien esta pensando para ejecutar codigo de python directamente también podemos ejecutar comandos en la instancia que se nos provee e instalar software. Lo que vamos a hacer es lo siguiente:
 
