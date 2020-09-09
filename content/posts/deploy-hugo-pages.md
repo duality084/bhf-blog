@@ -18,6 +18,7 @@ Si algo caracteriza a muchos de los que trabajamos en sistemas es la aversión p
 
 
 
+
 ## Como funciona este blog?
 
 Primero comencemos por como funciona este blog, como comente [anteriormente](http://bhf.com.ar/creando-blog-con-hugo/) esta pagina esta creado con Hugo el cual mediante archivos Markdown genera archivos estáticos que pueden ser hosteados directamente en cualquier servidor web sin mas requisitos.
