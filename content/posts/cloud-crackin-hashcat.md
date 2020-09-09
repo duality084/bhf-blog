@@ -146,7 +146,7 @@ La misma prueba en mi GPU una Nvidia 1070 arroja los siguientes resultados
 
 ![Benchmark 1070](/images/cloud-cracking-hashcat/benchmark-1070.png "Benchmark 1070")
 
-Podemos ver que en Colab el resultado es por poco superior, con capacidad de realizar 3570000 hashes por segundo. Mientras que la 1070 es de 342000, en otras pruebas me toco el GPU Tesla P4 y el resultado era 416000 hashes por segundo.
+Podemos ver que en Colab el resultado es por poco superior, con capacidad de realizar 357000 hashes por segundo. Mientras que la 1070 es de 342000, en otras pruebas me toco el GPU Tesla P4 y el resultado era 416000 hashes por segundo.
 
 Cabe aclarar que el performance puede no ser estable, hay que recordar que los recursos son compartidos con otras personas que utilizan la plataforma. Pero como dice el dicho "A caballo regalado no se le miran los dientes"
 
