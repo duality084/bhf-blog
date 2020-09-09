@@ -155,5 +155,9 @@ Cabe aclarar que el performance puede no ser estable, hay que recordar que los r
 Luego de estos pasos podemos utilizar Colab, y hashcat para seguramente por lejos obtener mejor rendimiento que en nuestro Kali virtualizado con un solo core asignado. Si bien mostre como conectarme por ssh a la instancia que nos provee google, los comandos tambien pueden ser ejecutados directamente desde la interfaz de Colab.
 ![Ejecucion comandos](/images/cloud-cracking-hashcat/ejecucion-comandos-colab.png "Ejecucion comandos")
 
+Por ultimo les dejo los 2 repositorios de los cuales hice el archivo que comparti en mi repo, sacando ideas de los 2 y que se ajuste a mis necesidades-
+* [https://github.com/someshkar/colabcat](https://github.com/someshkar/colabcat)
+* [https://github.com/semihucann/hash_cracking_with_gpu](https://github.com/semihucann/hash_cracking_with_gpu)
+
 Happy Cracking!
 
