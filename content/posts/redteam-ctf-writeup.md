@@ -11,19 +11,19 @@ featuredImage: "/images/redteam-ctf-writeup/redteam.png"
 lightgallery: true
 
 ---
-WOW! La EKO ya termino y paso todo muy rápido! Aun queda el cansancio y cuesta conciliar el sueño pensando en todo el contenido que hubo, en las posibles otras soluciones y soluciones a los retos cuales no se pudieron solucionar. Fueron 3 días intensos de charlas, CTFs, cafe y cerveza!
+WOW! La EKO ya terminó y pasó todo muy rápido! Aún queda el cansancio y cuesta conciliar el sueño pensando en todo el contenido que hubo, en las  otras posibles soluciones a las que encontramos y las de los retos que no pudimos solucionar. Fueron 3 días intensos de charlas, CTF's, café y cerveza!
 
 "Drink all the booze hack all the things!"
 {{< youtube FoUWHfh733Y >}}
 
 
-Desde que nos enteramos que habría un CTF en el espacio RedTeam nos propusimos a intentarlo, el mismo se definía según sus autores de la siguiente manera.
+Desde que nos enteramos que habría un CTF en el espacio RedTeam nos propusimos intentarlo, el mismo se definía según sus autores de la siguiente manera:
 {{< admonition type=info title="CTF RedTeam Space" open=True >}}
-El principal objetivo del Red Team es validar las capacidades de una organización contra ciberamenazas. Tratando de emular ataques y escenarios reales para que las empresas pueden enfocar sus esfuerzos en ejemplos realistas. El objetivo del CTF de la Zona de Red Team, es crear desafíos para que los profesionales o entusiastas en el área ,puedan aprender nuevas técnicas y vectores de ataque.
+El principal objetivo del Red Team es validar las capacidades de una organización contra ciberamenazas. Tratando de emular ataques y escenarios reales para que las empresas pueden enfocar sus esfuerzos en ejemplos realistas. El objetivo del CTF de la Zona de Red Team es crear desafíos para que los profesionales, o entusiastas en el área, puedan aprender nuevas técnicas y vectores de ataque.
 
 El desafío va a estar diseñado de la siguiente manera:
 
-    *La organización a atacar es Mandinga Corporation
+    *La organización a atacar es Mandinga Corporation.
     *En esta edición los objetivos a atacar pueden ser personas o activos digitales.
     *Los participantes tienen que atacar a este objetivo y tiene que ir obteniendo. El formato de las flag es PUCARA{FLAG}
     *El último objetivo del challenge es tomar el control del Active Directory.
@@ -31,28 +31,28 @@ El desafío va a estar diseñado de la siguiente manera:
 
 {{< /admonition >}}
 
-Los CTFs suelen ser en su mayoría retos de ingenio en los cuales usas técnicas o ves cosas que no se ven en el dia a dia del trabajo del Pentester/Hacker y en algunos casos cosas que solo vas a ver en un CTF, debemos confesar que no nos sentimos muy cómodos con los típicos retos que uno suele encontrarse en un CTF. [PucaraSec](https://pucarasec.com/) supo como llevar a cabo un CTF equilibrado entre lo técnico sin dejar de lado el aspecto de "rompecabezas" que suelen tener los retos en estos tipos de eventos.
+Los CTF's suelen ser en su mayoría retos de ingenio en los cuales usás técnicas o ves cuestiones que no se ven en el dia a dia del trabajo del Pentester/Hacker y en algunos casos cosas que solo vas a ver en un CTF. Debemos confesar que no nos sentimos muy cómodos con los típicos retos que uno suele encontrarse en un CTF. [PucaraSec](https://pucarasec.com/) supo cómo llevar a cabo un CTF equilibrado entre lo técnico y el aspecto de "rompecabezas", que suelen tener los retos en estos tipos de eventos.
 
-## Basta de introduccion comencemos!
+## Basta de introducción comencemos!
 
-El primer reto nos invitaba a hacer reconocimiento y que encontremos el dominio de la empresa ficticia "Mandinga Corporation" como bien se nos explicaba en los objetivos las técnicas a utilizar van desde el OSINT hasta la post-explotacion, arrancamos con un poco de "Google Hacking" para poder realizar el primer pedido, con la siguiente búsqueda "Mandinga Corporation site:red.ctf.ekoparty.org" podíamos acceder a la version cacheada de la pagina del CTF en google y ver que anteriormente en el contenido del sitio estaba el domino a atacar. En este caso el dominio era "mandingacorp.xyz", se trataba de un sitio en Wordpress con información institucional sobre "Mandinga Corp", lamentablemente me olvide de sacarle una captura de pantalla, si bien ya teniamos el dominio el flag para validar el reto era otro se encontraba en en una de las secciones de la pagina en el código HTML.
+El primer reto nos invitaba a hacer reconocimiento y que encontremos el dominio de la empresa ficticia "Mandinga Corporation" como bien se nos explicaba en los objetivos las técnicas a utilizar van desde el OSINT hasta la post-explotacion. Arrancamos con un poco de "Google Hacking" para poder realizar el primer pedido, con la siguiente búsqueda "Mandinga Corporation site:red.ctf.ekoparty.org". Podíamos acceder a la version cacheada de la pagina del CTF en google y ver que anteriormente en el contenido del sitio estaba el dominio a atacar. En este caso, el dominio era "mandingacorp.xyz", se trataba de un sitio en Wordpress con información institucional sobre "Mandinga Corp", lamentablemente me olvidé de sacarle una captura de pantalla. Si bien ya teníamos el dominio, el flag para validar el reto era otro que se encontraba en una de las secciones de la página, en el código HTML.
 
 ![1er Flag](/images/redteam-ctf-writeup/flagmandinga.png "1er FLAG")
 
 
-La verdad que el primer flag no fue tan fácil, uno en la emoción de querer hacer las cosas rápido y pasar al siguiente nivel se pierde a veces los detalles de mirar el código HTML, y en un principio muchos de los que también estaban intentando realizar el CTF  empezaron a darle con las herramientas automatizadas y sitio quedo inaccesible, por suerte el equipo de PucaraSec hizo un terrible trabajo contestando cada una de las inquietudes y problemas a toda hora en el canal de Discord.
+La verdad que el primer flag no fue tan fácil, en la emoción de querer hacer las cosas rápido y pasar al siguiente nivel, a veces te perdés los detalles de mirar el código HTML. Además, en un principio muchos de los que también estaban intentando realizar el CTF empezaron a darle con las herramientas automatizadas y el sitio quedó inaccesible, por suerte el equipo de PucaraSec hizo un terrible trabajo contestando cada una de las inquietudes y problemas a toda hora en el canal de Discord.
 
 ## 2do challenge.
 Para el segundo flag teníamos la siguiente consigna.
 
 ![2do challenge](/images/redteam-ctf-writeup/challenge2.png "2do challenge")
 
-Como siempre en este tipo de eventos las pistas están en los enunciados de una manera rebuscada, lo que primero podemos ver a simple vista es que nos dice la respuesta esta en los usuarios de Mandinga Corp. Navegando por la pagina pudimos encontrar lo siguiente:
+Como siempre en este tipo de eventos las pistas están en los enunciados de una manera rebuscada, lo que primero podemos ver a simple vista es que nos dice la respuesta está en los usuarios de Mandinga Corp. Navegando por la página pudimos encontrar lo siguiente:
 
 ![redteam.png](/images/redteam-ctf-writeup/emails.png "Usuarios!")
 ![redteam.png](/images/redteam-ctf-writeup/usuarios.png "Mas usuarios!")
 
-Realizando mas enumeración sobre el dominio con [dnsdumpster](dnsdumpster.com) pudimos obtener la siguiente información:
+Realizando más enumeración sobre el dominio con [dnsdumpster](dnsdumpster.com) pudimos obtener la siguiente información:
 
 ![dnsdumpster](/images/redteam-ctf-writeup/dnsdumpster.png "dnsdumpster")
 
@@ -78,7 +78,7 @@ PORT     STATE SERVICE       VERSION
 |_ 211 DATA HELO EHLO MAIL NOOP QUIT RCPT RSET SAML TURN VRFY
 3389/tcp open  ms-wbt-server Microsoft Terminal Services
 ```
-Vemos que nos encontramos con un servidor de correo y previamente pudimos obtener nombres de usuarios. Si bien solo tenemos a "wanda.nardo@mandingacorp.xyz" y "susana.gimenes@mandingacorp.xyz" es facil inferir que las personas en "Our Team" deben tener el correo con forma "nombre.apellido@mandingacorp.xyz" . Nos queda la siguiente lista de supuestos correos validos.
+Vemos que nos encontramos con un servidor de correo y previamente pudimos obtener nombres de usuarios. Si bien solo tenemos a "wanda.nardo@mandingacorp.xyz" y "susana.gimenes@mandingacorp.xyz" es fácil inferir que las personas en "Our Team" deben tener el correo con forma "nombre.apellido@mandingacorp.xyz" . Nos queda la siguiente lista de supuestos correos validos.
 ```
 marcelo.tineli@mandingacorp.xyz
 florencia.penia@mandingacorp.xyz
@@ -91,7 +91,8 @@ Al enviar un correo todos los usuarios respondían y podíamos encontrarnos con 
 
 ![Respuesta](/images/redteam-ctf-writeup/respuestacorreo.png "Respuesta")
 
-Debido a una experiencia previa en una maquina de Hackthebox intente enviar un correo con un enlace para ver si algunos de los usuarios accedía, el enlace iba directo a mi servidor web, envie el enlace a todos los usuarios me quede mirando los logs del servidor pero solo veía las peticiones de los bots de Shodan, Google y alguna que otra IP China intentando vulnerar mi servidor WEB. A todo esto ya estaba entrada la noche del primer dia de la Ekoparty, varias horas de charlas, el CTF de RedTeam y el de ONAPSIS en paralelo no había estirado las piernas en 8 horas. Junto con bronxi salimos a comprar unas cervezas y recibir un poco de oxigeno, a las 2 cuadras de nuestro trayecto al parecer mi cerebro se oxigeno y relaciono las palabras "Higo, Tartas, Almendras" con las siglas HTA, recorde que mediante un archivo HTA si el usuario lo abre mediante Internet Explorer podiamos conseguir ejecucion de codigo. Volvimos ya con las piernas estiradas y el cerebro oxigenado a la carga, prepare el siguiente archivo HTA:
+Gracias a una experiencia previa en una máquina de HackTheBox, intenté enviar un correo con un enlace para ver si algunos de los usuarios accedía, el enlace iba directo a mi servidor web. Envié el enlace a todos los usuarios... me quedé mirando los logs del servidor, pero solo veía las peticiones de los bots de Shodan, Google y alguna que otra IP China intentando vulnerar mi servidor WEB. A todo esto ya estaba entrada la noche del primer díaa de la Ekoparty, varias horas de charlas, el CTF de RedTeam y el de ONAPSIS en paralelo; ¡no había estirado las piernas en 8 horas!
+Junto con bronxi, salimos a comprar unas cervezas y recibir un poco de oxígeno, a las 2 cuadras de nuestro trayecto al parecer mi cerebro se oxígeno y relacionó las palabras "Higo, Tartas, Almendras" con las siglas HT. Recordé que si el usuario abre un archivo .HTA mediante Internet Explorer podíamos conseguir ejecución de código. Volvimos ya con las piernas estiradas y el cerebro oxigenado a la carga, preparé el siguiente archivo HTA:
 
 ```html
 <html>
@@ -107,17 +108,17 @@ new ActiveXObject('WScript.Shell').Run(c);
 
 ```
 
-El payload nos da una shell inversa con powershell al host y puertos seleccionados, a la persona que este leyendo le recomiendo el repositorio [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md) que contiene disintas maneras de generar shells inversas en distintos lenguajes de programacion y sistemas operativos. 
+El payload nos da una shell inversa con powershell al host y puertos seleccionados, a la persona que esté leyendo le recomiendo el repositorio [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md) que contiene disintas maneras de generar shells inversas en distintos lenguajes de programación y sistemas operativos. 
 
-Junto con memoryempty intentamos mandar el correo de todas las maneras que se nos ocurrio. No hubo caso no teniamos una shell y ni un vestigio de que algo o alguien fuera a buscar nuestro payload. Ya eran las 23hs del primer dia de la eko y nadie habia logrado sacar el segundo flag, comimos tomamos mas cerveza intentamos mas cosas y nada, hubo que irse a dormir pensando que estabamos equivocados.
-Al otro dia a las 8 AM ya estabamos "descansados" e intentando nuevamente obtener el flag. Los chicos de PucaraSec habian dejado mas pistas durante la madrugada, como buena noticia estabamos en lo correcto habia que mandarle un correo a un usuario con un enlace a un archivo HTA. Asi que manos a la obra nuevamente, para ser mas explicitos cambiaron el mensaje de uno de los usuarios y contestaba de la siguiente manera.
+Junto con memoryempty intentamos mandar el correo de todas las maneras que se nos ocurrió. No hubo caso, no teníamos una shell ni un vestigio de que algo o alguien fuera a buscar nuestro payload. Ya eran las 23hs. del primer día de la eko y nadie había logrado sacar el segundo flag. Comimos, tomamos más cerveza, intentamos más cosas y nada. Hubo que irse a dormir pensando que estabamos equivocados.
+Al otro día, a las 8 AM, ya estabamos "descansados" e intentando nuevamente obtener el flag. Los chicos de PucaraSec habían dejado más pistas durante la madrugada. Como buena noticia, estabamos en lo correcto habíaa que mandarle un correo a un usuario con un enlace a un archivo HTA. Asi que manos a la obra nuevamente, para ser más explícitos cambiaron el mensaje de uno de los usuarios y contestaba de la siguiente manera:
 
-![Respuesta Marcelo](/images/redteam-ctf-writeup/correomarcelo.png "Que raro el CEO de la empresa siendo victima de phishing(?")
+![Respuesta Marcelo](/images/redteam-ctf-writeup/correomarcelo.png "Qué raro el CEO de la empresa siendo víctima de phishing(?")
 
-Marcelo era nuestra victima los otros usuarios quedaban descartados. Nuevamente volvimos a intentar hasta que  llegaron las pistas de los chicos de Pucara. El envio de los enlaces era tan facil como "ip/payload.hta" no habia que rebuscarsela mucho, nosotros habiamos intentado hasta con dominio y SSL activado, estabamos desesperados!
+Marcelo era nuestra víctima,los otros usuarios quedaban descartados. Nuevamente volvimos a intentar hasta que llegaron las pistas de los chicos de Pucara. El envió de los enlaces era tan fácil como "ip/payload.hta", no había que rebuscársela mucho, nosotros habiamos intentado hasta con dominio y SSL activado, ¡estabamos desesperados!
 
 ![Foothold](/images/redteam-ctf-writeup/firstblood.png "Tenemos una shell!!")
-No se si tambien les pasa pero siento que no hay momento mas emocionante que recibir una conexion! Todas las ganas de romper el teclado se desvanecen y solo queres ver que es lo que sigue! El flag se encontraba en la carpeta "Documents" en el usuario "marce"
+No se si también les pasa, pero siento que no hay momento más emocionante que recibir una conexión! Todas las ganas de romper el teclado se desvanecen y solo querés ver qué es lo que sigue! El flag se encontraba en la carpeta "Documents" en el usuario "marce".
 
 
 ## 3er Challenge
