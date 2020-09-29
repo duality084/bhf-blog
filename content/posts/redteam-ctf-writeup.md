@@ -33,7 +33,8 @@ El desafío va a estar diseñado de la siguiente manera:
 
 Los CTF's suelen ser en su mayoría retos de ingenio en los cuales usás técnicas o ves cuestiones que no se ven en el dia a dia del trabajo del Pentester/Hacker y en algunos casos cosas que solo vas a ver en un CTF. Debemos confesar que no nos sentimos muy cómodos con los típicos retos que uno suele encontrarse en un CTF. [PucaraSec](https://pucarasec.com/) supo cómo llevar a cabo un CTF equilibrado entre lo técnico y el aspecto de "rompecabezas", que suelen tener los retos en estos tipos de eventos.
 
-## Basta de introducción comencemos!
+## Ya cómete la maldita naranja!
+![Los Simpsons](https://media1.tenor.com/images/02ff8bf14179b66b82fc9ea3757cdce0/tenor.gif "Comencemos!")
 
 El primer reto nos invitaba a hacer reconocimiento y que encontremos el dominio de la empresa ficticia "Mandinga Corporation" como bien se nos explicaba en los objetivos las técnicas a utilizar van desde el OSINT hasta la post-explotacion. Arrancamos con un poco de "Google Hacking" para poder realizar el primer pedido, con la siguiente búsqueda "Mandinga Corporation site:red.ctf.ekoparty.org". Podíamos acceder a la version cacheada de la pagina del CTF en google y ver que anteriormente en el contenido del sitio estaba el dominio a atacar. En este caso, el dominio era "mandingacorp.xyz", se trataba de un sitio en Wordpress con información institucional sobre "Mandinga Corp", lamentablemente me olvidé de sacarle una captura de pantalla. Si bien ya teníamos el dominio, el flag para validar el reto era otro que se encontraba en una de las secciones de la página, en el código HTML.
 
@@ -184,7 +185,7 @@ En el día viernes en el espacio RedTeam se dio un workshop sobre "Elevacion de 
 
 Subimos el binario de JuicyPotato a la máquina mediante la sección "Profile" de la página.
 
-Preparamos un "payload", se trata de un archivo "bat" con una secuencia de comandos para crear un usuario Administrador, nos percatamos que esta manera era la más "simple". Si hacíamos una shell inversa y por algún motivo se caía había que volver a realizar el proceso con Juicypotato otra vez. La contra de realizar una shell inversa era que no se tenía acceso a Internet, así que había que realizar a la primer máquina que obtuvimos una shell, como en una enumeración a los puertos del host 10.0.0.228 nos dimos cuenta que tiene el puerto 3389 abierto nos pareció lo más simple crear una cuenta de Administrador y conectarnos por RDP, pivotendo mediante nuestro primer host controlado.
+Preparamos un "payload", se trata de un archivo "bat" con una secuencia de comandos para crear un usuario Administrador, nos percatamos que esta manera era la mas "simple", si haciamos una shell inversa y por algun motivo se caia habia que volver a comenzar el proceso con Juicypotato, otra contra de de realizar una shell inversa era que no se tenia acceso a internet asi que habria que hacer la conexión a la primer maquina que obtuvimos una shell, como en una enumeracion a los puertos del host 10.0.0.228 nos dimos cuenta que tiene el puerto 3389 abierto nos parecio lo mas simple crear una cuenta de Administrador y conectarnos por RDP pivotendo mediante nuestro primer host controlado.
 
 ![Payloadpriv](/images/redteam-ctf-writeup/privshell.png "Creamos el payload")
 
