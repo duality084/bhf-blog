@@ -69,7 +69,7 @@ Maybe in plain sight?
 After all, it's said to be one of the best places to hide	
 ```
 
-## Th1s_1s_th3_fl4g! (stegsnow)
+## 3° Th1s_1s_th3_fl4g! (stegsnow)
 
 Dice que el flag está junto al texto y no es visible. También habla de Blancanieves... recordé un taller sobre esteganografía que había visto el día anterior:
 
