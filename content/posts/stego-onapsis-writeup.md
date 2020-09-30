@@ -3,7 +3,7 @@ title: "WriteUp CTF Stego de Onapsis - EKOPARTY"
 date: 2020-09-30T16:02:03-03:00
 author: "bronxi. memoryempty, Matías Ramírez"
 
-draft: true
+draft: false
 
 tags: ["writeup","stego","ekoparty"]
 categories: ["writeup","stego"]
@@ -12,18 +12,18 @@ lightgallery: true
 
 ---
 
-
 El año pasado fue mi primer eko, después de bastante tiempo, retomé mi pasión por la seguridad informática. Esa curiosidad, sobre todo por entender cómo funcionan las cosas y cómo podría utilizarse ese funcionamiento para otros fines.
 A diferencia del año pasado, esta eko me encontró participando de un team (BHF) y además con algunas nociones para poder encarar los CTF’s, cosa que el año anterior no hubiese imaginado.
 Shebi nos anotó como equipo en dos CTF’s: *Pucará* y *Onapsis*. Entramos a ver cada uno de los ch4ll3ng3s a ver por dónde empezar y qué podíamos hacer. No nos imaginábamos que íbamos a rankear en ambos, simplemente era un desafío gustoso que tomábamos como equipo.
+
+Abro paréntesis, literal (si recién comienzan en el mundo de la esteganografía, les recomiendo este artículo: https://hackinglethani.com/es/esteganografia/)
+
 Después de terminar el juego de abrir los candados de *Naranja*, me aboqué al CTF de *Onapsis*. Uno de los ch4ll3ng3 que más me gustó fue el de stego. Les invito a leer el writeup a continuación.
  
 
 ![Steg Flag](/images/stego-onapsis-writeup/stegoctf.jpg "Steg FLAG")
 
 Como se observa en la imagen, hace referencia al uso de la clásica cortapluma Victorinox, esto da una pista de que se necesitarán varias herramientas para su resolución. El archivo descargado es “in_plain_sight.tar.xz”. Al extraerlo hay una  imagen: “in_plain_sight.jpg”. Es una captura de una escena de Toy Story 2, cuando nuestros héroes cruzan la calle hacia la juguetería.
-
-Abro paréntesis, literal (si recién comienzan en el mundo de la esteganografía, les recomiendo este artículo: https://hackinglethani.com/es/esteganografia/)
 
 ![Imagen](/images/stego-onapsis-writeup/in_plain_sight.jpg "Imagen de Toy Story 2")
 
