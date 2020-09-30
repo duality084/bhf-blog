@@ -47,7 +47,7 @@ Al ejecutarse, abrí la imagen y justo cuando iba pasando capa por capa, apareci
 ## 2° hallazgo (steghide)
 
 Nos emocionamos, pero el mensaje era sincero, no se trataba del flag. Entonces, ¿para qué era? Un rabbit hole seguro que no.
-Ya había probado con Binwalk, que no encontró archivos ocultos, o eso pensé. Di con una herramienta que busca archivos ocultos protegidos con clave. Se trata de "Steghide" (https://pkg.kali.org/pkg/steghide):
+Ya había probado con Binwalk, que no encontró archivos ocultos, o eso pensé. Di con una herramienta que busca archivos ocultos protegidos con clave. Se trata de "Steghide" (https://pkg.kali.org/pkg/steghide ):
 
 ```
 # steghide extract -sf in_plain_sight.jpg
