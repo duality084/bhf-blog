@@ -1,6 +1,6 @@
 ---
 title: "WriteUp Redteam CTF EKOPARTY"
-date: 2020-09-28T09:11:03-03:00
+date: 2020-09-28T09:10:03-03:00
 author: "Matias Ramirez. memoryempty, bronxi"
 
 draft: false
