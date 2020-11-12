@@ -11,7 +11,7 @@ featuredImage: "/images/redteam-ctf-writeup/redteam.png"
 lightgallery: true
 
 ---
-WOW! La EKO ya terminó y pasó todo muy rápido! Aún queda el cansancio y cuesta conciliar el sueño pensando en todo el contenido que hubo, en las  otras posibles soluciones a las que encontramos y las de los retos que no pudimos solucionar. Fueron 3 días intensos de charlas, CTF's, café y cerveza!
+WOW!! La EKO ya terminó y pasó todo muy rápido! Aún queda el cansancio y cuesta conciliar el sueño pensando en todo el contenido que hubo, en las  otras posibles soluciones a las que encontramos y las de los retos que no pudimos solucionar. Fueron 3 días intensos de charlas, CTF's, café y cerveza!
 
 "Drink all the booze hack all the things!"
 {{< youtube FoUWHfh733Y >}}
