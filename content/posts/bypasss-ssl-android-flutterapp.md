@@ -39,7 +39,7 @@ En el post se menciona que luego de hacer un análisis de las funciones en la li
 ```
 apktool d -rs target.apk
 ```
-Como mencionamos anteriormente Flutter genera aplicaciones nativas, asi que dentro de lo que descomprimos podemos encontrar en la carpeta "lib" nuestra aplicacion, en este caso 2 archivos en "libapp.so" donde se ecuentra toda la logica de aplicacion y en "libflutter.so" todas las funcionalidades de flutter en si, como por ejemplo la función de la librería de BoringSSL que estamos buscando.
+Como mencionamos anteriormente Flutter genera aplicaciones nativas, asi que dentro de lo que descomprimimos podemos encontrar en la carpeta "lib" nuestra aplicación, en este caso 2 archivos en "libapp.so" donde se encuentra toda la lógica de aplicación y en "libflutter.so" todas las funcionalidades de flutter en si, como por ejemplo la función de la librería de BoringSSL que estamos buscando.
 ![Archivos Flutter](images/bypasss-ssl-android-flutterapp/lsflutterapp.png "Archivos Flutter")
 Luego podemos proceder a decompilar "libflutter.so" con [ghidra](https://ghidra-sre.org/).
 
