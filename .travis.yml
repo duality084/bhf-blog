@@ -10,7 +10,7 @@ deploy:
   repo: duality084/duality084.github.io # El repositorio donde se va a hacer el deploy
   target_branch: master # GitHub pages branch to deploy to (in other cases it can be gh-pages)
   provider: pages #El "provider" en este caso "pages" que nos va a dar las funcionalidades de "Github Pages" especificados mas adelante
-  skip_cleanup: true
+  cleanup: true
   github_token: $GITHUB_TOKEN # This is the authentication which you will setup in the next step in travis-ci dashboard
   email: duality084@gmail.com
   name: "Ramirez Matias"
