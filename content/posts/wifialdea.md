@@ -15,6 +15,8 @@ lightgallery: true
 
 # WiFi Cooperativo en la aldea de montaña
 
+*Esta prueba se realizó en un entorno controlado con los permisos de los clientes adjudicatarios de los dispositivos involucrados, con el fin único de reconocer el nivel de seguridad de acceso a los dispositivos wifi desde una perspectiva ética de investigación en InfoSec.*
+
 Pasé tres semanas en San Martín de los Andes y noté que las claves WiFi por defecto del único proveedor de Internet tienen un patrón sumamente sencillo. Poseen 8 dígitos y todas comienzan con los mismos cuatro caracteres y los últimos 4 son alfanuméricos aleatorios. Por lo que existen solamente 1679616 posibilidas. Para generar un diccionario con dichas líneas, utilizaré la herramienta crunch.
 
 ## Instalar crunch & dictionary
@@ -106,5 +108,4 @@ Por último, utilizamos fuerza bruta para probar todas las claves del diccionari
 - Generar claves de diez caracteres en la que todos sus caracteres sean aleatorios.
 - Si sos user, cambiá tu clave por defecto.
 
-
-*Esta prueba se realizó en un entorno controlado con los permisos de los clientes adjudicatarios de los dispositivos involucrados, con el fin único de reconocer el nivel de seguridad de acceso a los dispositivos wifi desde una perspectiva ética de investigación en InfoSec.*
+¡Disfruten el lago, la montaña y un WiFi seguro!
