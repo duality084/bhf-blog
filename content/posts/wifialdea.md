@@ -93,7 +93,7 @@ Al conseguir el handshake, se notificará en la terminal que está escuchando, a
 
 Verán algo así:
 
-![Handshake](/images/wifialdes/handshake.png "Handshake")
+![Handshake](/images/wifialdea/handshake.png "Handshake")
 
 ## Brute force final
 Por último, utilizamos fuerza bruta para probar todas las claves del diccionario sobre el archivo que contiene el handshake con el siguiente comando:
