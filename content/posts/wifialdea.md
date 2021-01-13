@@ -107,4 +107,4 @@ Por último, utilizamos fuerza bruta para probar todas las claves del diccionari
 - Si sos user, cambiá tu clave por defecto.
 
 
-* Esta prueba se realizó en un entorno controlado con los permisos de los clientes adjudicatarios de los dispositivos involucrados, con el fin único de reconocer el nivel de seguridad de acceso a los dispositivos wifi desde una perspectiva ética de investigación en InfoSec.
+* Esta prueba se realizó en un entorno controlado con los permisos de los clientes adjudicatarios de los dispositivos involucrados, con el fin único de reconocer el nivel de seguridad de acceso a los dispositivos wifi desde una perspectiva ética de investigación en InfoSec.*
