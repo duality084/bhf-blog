@@ -107,6 +107,5 @@ Por último, utilizamos fuerza bruta para probar todas las claves del diccionari
 
 ## Recomendaciones:
 - Generar claves de diez caracteres en la que todos sus caracteres sean aleatorios.
-- Si sos user, cambiá tu clave por defecto.
 
 ¡Disfruten el lago, la montaña y un WiFi seguro!
