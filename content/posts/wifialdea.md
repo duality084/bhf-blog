@@ -1,6 +1,6 @@
 ---
 title: "WiFi Cooperativo en la aldea de montaña"
-date: 2021-01-13T13:02:03-03:00
+date: 2021-01-13T00:00:00-03:00
 author: "bronxi"
 
 draft: false
