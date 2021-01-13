@@ -34,7 +34,7 @@ El string "abcdefghijklmnopqrstuvwxyz0123456789" que le sigue determina los cara
 La opción "-t" especifica un patrón para los caracteres aleatorios. En este caso es @, que se trata de minúsculas y también tomará los números que hemos indicado anteriormente. A esto le sigue la estructura del patrón "cote@@@@". Las @s serán los caracteres reemplazados por todas las variantes de la a a la z y del 0 al 9.
 La opción "-o" indica la salida. Nombramos el archivo como nos guste.
 
-### __Podemos decir que este diccionario contiene todas las claves por defecto de la ciudad__ ###
+__Ahora contamos con un diccionario que contiene todas las claves por defecto de la ciudad__
 
 
 El siguiente paso es conseguir el archivo que contenga el handshake cifrado de la red WiFi. Para ello utilizamos aircrack-ng.
@@ -85,7 +85,7 @@ Acá "-w" indica el nombre del archivo en el que se guardarán los datos captura
 
 Veremos la cantidad de paquetes capturados y perdidos. En al parte inferior de la terminal, se observan los clientes conectados al accesspoint, elegimos uno para deantenticar y obtener el handshake (paquete que contiene la clave WiFi encriptada).
 
-## Deaunenticar al cliente
+## Deauntenticar al cliente
 Mientras el proceso anterior continúa corriendo, en otra terminal realizamos una deautenticación del cliente con los datos copiados. Es decir, del BSSID (accesspoint) y de una STATION (cliente).
 
 > aireplay-ng -0 10 -a 00:01:12:56:32:56 -c 00:00:10:A0:05:06 wlan0mon
