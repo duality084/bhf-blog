@@ -3,7 +3,7 @@ title: "WiFi Cooperativo en la aldea de montaña"
 date: 2021-01-13T13:02:03-03:00
 author: "bronxi"
 
-draft: true
+draft: false
 
 tags: ["wifi","aircrack","brute force"]
 categories: ["wifi","brute foce"]
