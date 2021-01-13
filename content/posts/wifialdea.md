@@ -49,6 +49,7 @@ Para instalarlo en cualquier versión Debian (Kali también lo trae):
 Nos fijamos el nombre de nuestra placa con ifconfig
 
 > ifconfig
+
 > wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.1.38  netmask 255.255.255.0  broadcast 192.168.1.255
         inet6 fa80::4g23:98l6:ka0:3436  prefixlen 64  scopeid 0x20<link>
