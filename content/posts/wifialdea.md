@@ -67,19 +67,19 @@ Antes de comenzar realizamos un check kill para evitar cualquier conflicto.
 
 ## Monitor Mode
 
-Luego ponemos nuestra placa wifi en modo monitos:
+Luego ponemos nuestra placa wifi en modo monitor:
 
 > sudo airmon-ng start wlan0
 
 ## Redes WiFi en nuestro aire
 Escaneamos las redes:
 
-> sudo airodump-ng start wlan0mon
+> sudo airodump-ng wlan0mon
 
 ## Escuchando por un handshake
 Una vez elegido el accesspoint al que queremos acceder, con ctrl + c detenemos el escaneo y nos pondremos a la escucha del accesspoint seleccionado:
 
-> sudo airodump-ng -c 6 -b 00:01:12:56:32:56 -w nombredelarchivocondatosescuchados wlan0mon
+> sudo airodump-ng -c 6 --bssid 00:01:12:56:32:56 -w nombredelarchivocondatosescuchados wlan0mon
 
 Acá "-w" indica el nombre del archivo en el que se guardarán los datos capturados. "-c" indica en canal por el que trabaja el accesspoint. "-b" indica la MAC del accesspoint (BSSID). Por último, la interface que usamos, en este caso "wlan0mon". Al darle enter comenzará a escuchar ese accesspoint.
 
